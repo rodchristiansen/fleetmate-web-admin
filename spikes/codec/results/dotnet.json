@@ -1,0 +1,525 @@
+{
+  "candidate": "dotnet",
+  "runtime": "10.0.11",
+  "libraries": {
+    "YamlDotNet": "18.1.0 (MIT)",
+    "plist-cil": "2.3.1 (MIT)"
+  },
+  "results": [
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 2,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "1-/1+ lines differ",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -51,7 +51,7 @@\n \t</dict>\n \t<key>postinstall_script</key>\n \t<string>#!/bin/sh\n-echo \"done &amp; &lt;ok&gt;\"\n+echo &quot;done &amp; &lt;ok&gt;&quot;\n exit 0\n </string>\n \t<key>icon_data</key>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 3,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "2-/2+ = 4 changed lines (ideal 2)",
+      "changed_lines": {
+        "removed": 2,
+        "added": 2
+      },
+      "diff": "--- original\n+++ written\n@@ -5,7 +5,7 @@\n \t<key>name</key>\n \t<string>ExampleEditor</string>\n \t<key>display_name</key>\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n \t<key>version</key>\n \t<string>2.10</string>\n \t<key>catalogs</key>\n@@ -51,7 +51,7 @@\n \t</dict>\n \t<key>postinstall_script</key>\n \t<string>#!/bin/sh\n-echo \"done &amp; &lt;ok&gt;\"\n+echo &quot;done &amp; &lt;ok&gt;&quot;\n exit 0\n </string>\n \t<key>icon_data</key>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 5,
+      "mode": "surgical",
+      "pass": true,
+      "detail": "1-/1+ = 2 changed lines (ideal 2); reparse matches expected tree: True; comments kept: True",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -5,7 +5,7 @@\n \t<key>name</key>\n \t<string>ExampleEditor</string>\n \t<key>display_name</key>\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n \t<key>version</key>\n \t<string>2.10</string>\n \t<key>catalogs</key>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal; file rebuilt from JSON matches plist-cil rewrite; tags: installed_size={\"$int\":\"9007199254740993\"}, icon_data={\"$data\":\"iVBORw0KGgoAAA==\"}"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 2,
+      "mode": "plist-cil",
+      "pass": true,
+      "detail": "byte-identical; semantically equal"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 3,
+      "mode": "plist-cil",
+      "pass": true,
+      "detail": "binary: edited file decodes to exactly the expected tree: True; not line-diffable"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 5,
+      "mode": null,
+      "pass": null,
+      "detail": "n/a: binary plist is rewritten whole by design; Git shows it as a binary change either way"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal; file rebuilt from JSON matches plist-cil rewrite; tags: installed_size={\"$int\":\"9007199254740993\"}, icon_data={\"$data\":\"iVBORw0KGgoAAA==\"}"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 2,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "28-/27+ lines differ",
+      "changed_lines": {
+        "removed": 28,
+        "added": 27
+      },
+      "diff": "--- original\n+++ written\n@@ -2,33 +2,32 @@\n <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n <plist version=\"1.0\">\n <dict>\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n+\t<key>name</key>\n+\t<string>ExampleViewer</string>\n+\t<key>display_name</key>\n+\t<string>Example Viewer</string>\n+\t<key>version</key>\n+\t<string>1.0</string>\n+\t<key>catalogs</key>\n+\t<array>\n+\t\t<string>testing</string>\n+\t</array>\n+\t<key>installer_item_location</key>\n+\t<string>apps/ExampleViewer-1.0.pkg</string>\n+\t<key>installer_type</key>\n+\t<string>pkg</string>\n+\t<key>receipts</key>\n+\t<array>\n+\t\t<dict>\n+\t\t\t<key>packageid</key>\n+\t\t\t<string>com.example.viewer</string>\n+\t\t\t<key>version</key>\n+\t\t\t<string>1.0</string>\n+\t\t\t<key>optional</key>\n+\t\t\t<false/>\n+\t\t</dict>\n+\t</array>\n+\t<key>restart_action</key>\n+\t<string>None</string>\n </dict>\n </plist>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 3,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "28-/27+ = 55 changed lines (ideal 2)",
+      "changed_lines": {
+        "removed": 28,
+        "added": 27
+      },
+      "diff": "--- original\n+++ written\n@@ -2,33 +2,32 @@\n <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n <plist version=\"1.0\">\n <dict>\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n+\t<key>name</key>\n+\t<string>ExampleViewer</string>\n+\t<key>display_name</key>\n+\t<string>Example Viewer Pro</string>\n+\t<key>version</key>\n+\t<string>1.0</string>\n+\t<key>catalogs</key>\n+\t<array>\n+\t\t<string>testing</string>\n+\t</array>\n+\t<key>installer_item_location</key>\n+\t<string>apps/ExampleViewer-1.0.pkg</string>\n+\t<key>installer_type</key>\n+\t<string>pkg</string>\n+\t<key>receipts</key>\n+\t<array>\n+\t\t<dict>\n+\t\t\t<key>packageid</key>\n+\t\t\t<string>com.example.viewer</string>\n+\t\t\t<key>version</key>\n+\t\t\t<string>1.0</string>\n+\t\t\t<key>optional</key>\n+\t\t\t<false/>\n+\t\t</dict>\n+\t</array>\n+\t<key>restart_action</key>\n+\t<string>None</string>\n </dict>\n </plist>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "dropped: <!-- Edited by hand; comment must survive. -->"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 5,
+      "mode": "surgical",
+      "pass": true,
+      "detail": "1-/1+ = 2 changed lines (ideal 2); reparse matches expected tree: True; comments kept: True",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -6,7 +6,7 @@\n     <key>name</key>\n     <string>ExampleViewer</string>\n     <key>display_name</key>\n-    <string>Example Viewer</string>\n+    <string>Example Viewer Pro</string>\n     <key>version</key>\n     <string>1.0</string>\n     <key>catalogs</key>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal; file rebuilt from JSON matches plist-cil rewrite"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 2,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "1-/1+ lines differ",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -21,7 +21,7 @@\n \t<array>\n \t\t<dict>\n \t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n+\t\t\t<string>machine_type == &quot;laptop&quot; AND os_vers_major &gt;= 14</string>\n \t\t\t<key>managed_installs</key>\n \t\t\t<array>\n \t\t\t\t<string>ExampleVPN</string>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 3,
+      "mode": "plist-cil",
+      "pass": false,
+      "detail": "1-/2+ = 3 changed lines (ideal 1)",
+      "changed_lines": {
+        "removed": 1,
+        "added": 2
+      },
+      "diff": "--- original\n+++ written\n@@ -16,12 +16,13 @@\n \t<array>\n \t\t<string>ExampleEditor</string>\n \t\t<string>ExampleViewer</string>\n+\t\t<string>ExampleExtra</string>\n \t</array>\n \t<key>conditional_items</key>\n \t<array>\n \t\t<dict>\n \t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n+\t\t\t<string>machine_type == &quot;laptop&quot; AND os_vers_major &gt;= 14</string>\n \t\t\t<key>managed_installs</key>\n \t\t\t<array>\n \t\t\t\t<string>ExampleVPN</string>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 5,
+      "mode": "surgical",
+      "pass": true,
+      "detail": "0-/1+ = 1 changed lines (ideal 1); reparse matches expected tree: True; comments kept: True",
+      "changed_lines": {
+        "removed": 0,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -16,6 +16,7 @@\n \t<array>\n \t\t<string>ExampleEditor</string>\n \t\t<string>ExampleViewer</string>\n+\t\t<string>ExampleExtra</string>\n \t</array>\n \t<key>conditional_items</key>\n \t<array>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal; file rebuilt from JSON matches plist-cil rewrite"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass (scalar typing by adapter core-schema resolver; YamlDotNet leaves scalars untyped)"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 2,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "1-/0+ lines differ",
+      "changed_lines": {
+        "removed": 1,
+        "added": 0
+      },
+      "diff": "--- original\n+++ written\n@@ -1,4 +1,3 @@\n-# Munki YAML pkginfo, invented values.\n name: ExampleCLI\n display_name: Example CLI\n version: \"3.0\"\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 3,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "2-/1+ = 3 changed lines (ideal 2)",
+      "changed_lines": {
+        "removed": 2,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,6 +1,5 @@\n-# Munki YAML pkginfo, invented values.\n name: ExampleCLI\n-display_name: Example CLI\n+display_name: Example CLI Pro\n version: \"3.0\"\n catalogs:\n   - testing\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "dropped: # Munki YAML pkginfo, invented values."
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 2,
+      "mode": "EventPassthrough",
+      "pass": true,
+      "detail": "byte-identical",
+      "changed_lines": {
+        "removed": 0,
+        "added": 0
+      }
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 3,
+      "mode": "EventPassthrough",
+      "pass": true,
+      "detail": "1-/1+ = 2 changed lines (ideal 2)",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,6 +1,6 @@\n # Munki YAML pkginfo, invented values.\n name: ExampleCLI\n-display_name: Example CLI\n+display_name: Example CLI Pro\n version: \"3.0\"\n catalogs:\n   - testing\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "mode": "EventPassthrough",
+      "pass": true,
+      "detail": "all comments kept"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 5,
+      "mode": "surgical",
+      "pass": true,
+      "detail": "1-/1+ = 2 changed lines (ideal 2); reparse matches expected tree: True; comments kept: True",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,6 +1,6 @@\n # Munki YAML pkginfo, invented values.\n name: ExampleCLI\n-display_name: Example CLI\n+display_name: Example CLI Pro\n version: \"3.0\"\n catalogs:\n   - testing\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass (scalar typing by adapter core-schema resolver; YamlDotNet leaves scalars untyped)"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "9-/1+ lines differ",
+      "changed_lines": {
+        "removed": 9,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,15 +1,12 @@\n-# Cimian pkginfo, invented values.\n name: ExampleEditor\n display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: \"2.10\"\n description: An invented editor used only as a test fixture.\n developer: Example Co\n category: Productivity\n-\n catalogs:\n   - testing\n   - production\n-\n installer:\n   type: msi\n   location: pkgs/apps/ExampleEditor-2.10.msi\n@@ -17,30 +14,25 @@\n   arguments:\n     - /qn\n     - /norestart\n-\n installs:\n   - type: file\n     path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n     version: \"2.10.0.0\"\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n uninstaller:\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n unattended_install: true\n unattended_uninstall: false\n supported_architectures: [x64, arm64]\n minimum_os_version: 10.0.19045\n blocking_applications:\n   - editor.exe\n-\n preinstall_script: |\n   # PowerShell, runs before install\n   $path = \"$env:ProgramData\\Example\"\n   if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path | Out-Null }\n-\n installed_size: 9007199254740993\n x_unknown_site_key:\n   nested: [1, 2.5, three]\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "10-/2+ = 12 changed lines (ideal 2)",
+      "changed_lines": {
+        "removed": 10,
+        "added": 2
+      },
+      "diff": "--- original\n+++ written\n@@ -1,15 +1,12 @@\n-# Cimian pkginfo, invented values.\n name: ExampleEditor\n-display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+display_name: Example Editor Pro\n+version: \"2.10\"\n description: An invented editor used only as a test fixture.\n developer: Example Co\n category: Productivity\n-\n catalogs:\n   - testing\n   - production\n-\n installer:\n   type: msi\n   location: pkgs/apps/ExampleEditor-2.10.msi\n@@ -17,30 +14,25 @@\n   arguments:\n     - /qn\n     - /norestart\n-\n installs:\n   - type: file\n     path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n     version: \"2.10.0.0\"\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n uninstaller:\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n unattended_install: true\n unattended_uninstall: false\n supported_architectures: [x64, arm64]\n minimum_os_version: 10.0.19045\n blocking_applications:\n   - editor.exe\n-\n preinstall_script: |\n   # PowerShell, runs before install\n   $path = \"$env:ProgramData\\Example\"\n   if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path | Out-Null }\n-\n installed_size: 9007199254740993\n x_unknown_site_key:\n   nested: [1, 2.5, three]\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "dropped: # Cimian pkginfo, invented values. | # quoted: must stay a string, not 2.1"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "mode": "EventPassthrough",
+      "pass": false,
+      "detail": "8-/1+ lines differ",
+      "changed_lines": {
+        "removed": 8,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,15 +1,13 @@\n # Cimian pkginfo, invented values.\n name: ExampleEditor\n display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n description: An invented editor used only as a test fixture.\n developer: Example Co\n category: Productivity\n-\n catalogs:\n   - testing\n   - production\n-\n installer:\n   type: msi\n   location: pkgs/apps/ExampleEditor-2.10.msi\n@@ -17,30 +15,25 @@\n   arguments:\n     - /qn\n     - /norestart\n-\n installs:\n   - type: file\n     path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n     version: \"2.10.0.0\"\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n uninstaller:\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n unattended_install: true\n unattended_uninstall: false\n supported_architectures: [x64, arm64]\n minimum_os_version: 10.0.19045\n blocking_applications:\n   - editor.exe\n-\n preinstall_script: |\n   # PowerShell, runs before install\n   $path = \"$env:ProgramData\\Example\"\n   if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path | Out-Null }\n-\n installed_size: 9007199254740993\n x_unknown_site_key:\n   nested: [1, 2.5, three]\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "mode": "EventPassthrough",
+      "pass": false,
+      "detail": "9-/2+ = 11 changed lines (ideal 2)",
+      "changed_lines": {
+        "removed": 9,
+        "added": 2
+      },
+      "diff": "--- original\n+++ written\n@@ -1,15 +1,13 @@\n # Cimian pkginfo, invented values.\n name: ExampleEditor\n-display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+display_name: Example Editor Pro\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n description: An invented editor used only as a test fixture.\n developer: Example Co\n category: Productivity\n-\n catalogs:\n   - testing\n   - production\n-\n installer:\n   type: msi\n   location: pkgs/apps/ExampleEditor-2.10.msi\n@@ -17,30 +15,25 @@\n   arguments:\n     - /qn\n     - /norestart\n-\n installs:\n   - type: file\n     path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n     version: \"2.10.0.0\"\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n uninstaller:\n   - type: msi\n     product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n unattended_install: true\n unattended_uninstall: false\n supported_architectures: [x64, arm64]\n minimum_os_version: 10.0.19045\n blocking_applications:\n   - editor.exe\n-\n preinstall_script: |\n   # PowerShell, runs before install\n   $path = \"$env:ProgramData\\Example\"\n   if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path | Out-Null }\n-\n installed_size: 9007199254740993\n x_unknown_site_key:\n   nested: [1, 2.5, three]\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "mode": "EventPassthrough",
+      "pass": true,
+      "detail": "all comments kept"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 5,
+      "mode": "surgical",
+      "pass": true,
+      "detail": "1-/1+ = 2 changed lines (ideal 2); reparse matches expected tree: True; comments kept: True",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,6 +1,6 @@\n # Cimian pkginfo, invented values.\n name: ExampleEditor\n-display_name: Example Editor\n+display_name: Example Editor Pro\n version: \"2.10\"   # quoted: must stay a string, not 2.1\n description: An invented editor used only as a test fixture.\n developer: Example Co\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 5,
+      "mode": "surgical-quoted",
+      "pass": true,
+      "detail": "version -> \"2.11\": 1-/1+, double quotes and inline comment kept: True",
+      "changed_lines": {
+        "removed": 1,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -1,7 +1,7 @@\n # Cimian pkginfo, invented values.\n name: ExampleEditor\n display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: \"2.11\"   # quoted: must stay a string, not 2.1\n description: An invented editor used only as a test fixture.\n developer: Example Co\n category: Productivity\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal; tags: installed_size={\"$int\":\"9007199254740993\"}"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 1,
+      "mode": null,
+      "pass": true,
+      "detail": "all type checks pass (scalar typing by adapter core-schema resolver; YamlDotNet leaves scalars untyped)"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "6-/1+ lines differ",
+      "changed_lines": {
+        "removed": 6,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -2,24 +2,19 @@\n catalogs:\n   - testing\n   - production\n-\n included_manifests:\n   - site_default\n-\n managed_installs:\n-  - ExampleEditor   # all lab machines\n-\n+  - ExampleEditor\n conditional_items:\n   - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n     managed_installs:\n       - ExampleViewer\n-\n   - fact: department\n     operator: \"==\"\n     value: \"IT\"\n     managed_installs:\n       - ExampleRemote\n-\n notes: |\n   Invented manifest.\n   Conditional items use both supported forms.\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "6-/2+ = 8 changed lines (ideal 1)",
+      "changed_lines": {
+        "removed": 6,
+        "added": 2
+      },
+      "diff": "--- original\n+++ written\n@@ -2,24 +2,20 @@\n catalogs:\n   - testing\n   - production\n-\n included_manifests:\n   - site_default\n-\n managed_installs:\n-  - ExampleEditor   # all lab machines\n-\n+  - ExampleEditor\n+  - ExampleExtra\n conditional_items:\n   - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n     managed_installs:\n       - ExampleViewer\n-\n   - fact: department\n     operator: \"==\"\n     value: \"IT\"\n     managed_installs:\n       - ExampleRemote\n-\n notes: |\n   Invented manifest.\n   Conditional items use both supported forms.\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "mode": "RepresentationModel",
+      "pass": false,
+      "detail": "dropped: # all lab machines"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "mode": "EventPassthrough",
+      "pass": false,
+      "detail": "6-/1+ lines differ",
+      "changed_lines": {
+        "removed": 6,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -2,24 +2,19 @@\n catalogs:\n   - testing\n   - production\n-\n included_manifests:\n   - site_default\n-\n managed_installs:\n-  - ExampleEditor   # all lab machines\n-\n+  - ExampleEditor # all lab machines\n conditional_items:\n   - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n     managed_installs:\n       - ExampleViewer\n-\n   - fact: department\n     operator: \"==\"\n     value: \"IT\"\n     managed_installs:\n       - ExampleRemote\n-\n notes: |\n   Invented manifest.\n   Conditional items use both supported forms.\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "mode": "EventPassthrough",
+      "pass": false,
+      "detail": "6-/2+ = 8 changed lines (ideal 1)",
+      "changed_lines": {
+        "removed": 6,
+        "added": 2
+      },
+      "diff": "--- original\n+++ written\n@@ -2,24 +2,20 @@\n catalogs:\n   - testing\n   - production\n-\n included_manifests:\n   - site_default\n-\n managed_installs:\n-  - ExampleEditor   # all lab machines\n-\n+  - ExampleEditor # all lab machines\n+  - ExampleExtra\n conditional_items:\n   - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n     managed_installs:\n       - ExampleViewer\n-\n   - fact: department\n     operator: \"==\"\n     value: \"IT\"\n     managed_installs:\n       - ExampleRemote\n-\n notes: |\n   Invented manifest.\n   Conditional items use both supported forms.\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "mode": "EventPassthrough",
+      "pass": true,
+      "detail": "all comments kept"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 5,
+      "mode": "surgical",
+      "pass": true,
+      "detail": "0-/1+ = 1 changed lines (ideal 1); reparse matches expected tree: True; comments kept: True",
+      "changed_lines": {
+        "removed": 0,
+        "added": 1
+      },
+      "diff": "--- original\n+++ written\n@@ -8,6 +8,7 @@\n \n managed_installs:\n   - ExampleEditor   # all lab machines\n+  - ExampleExtra\n \n conditional_items:\n   - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 6,
+      "mode": null,
+      "pass": true,
+      "detail": "tagged JSON round trip equal"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "mode": "CimianYaml",
+      "pass": false,
+      "detail": "CimianStudio CimianYaml (untyped dictionary, best case for unknown keys): 30-/27+",
+      "changed_lines": {
+        "removed": 30,
+        "added": 27
+      },
+      "diff": "--- original\n+++ written\n@@ -1,46 +1,43 @@\n-# Cimian pkginfo, invented values.\n name: ExampleEditor\n display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: 2.10\n+blocking_applications:\n+- editor.exe\n+catalogs:\n+- testing\n+- production\n+category: Productivity\n description: An invented editor used only as a test fixture.\n developer: Example Co\n-category: Productivity\n-\n-catalogs:\n-  - testing\n-  - production\n-\n+installed_size: 9007199254740993\n installer:\n   type: msi\n   location: pkgs/apps/ExampleEditor-2.10.msi\n   hash: 0000000000000000000000000000000000000000000000000000000000000000\n   arguments:\n-    - /qn\n-    - /norestart\n-\n+  - /qn\n+  - /norestart\n installs:\n-  - type: file\n-    path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n-    version: \"2.10.0.0\"\n-  - type: msi\n-    product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n-uninstaller:\n-  - type: msi\n-    product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n-unattended_install: true\n-unattended_uninstall: false\n-supported_architectures: [x64, arm64]\n+- type: file\n+  path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n+  version: 2.10.0.0\n+- type: msi\n+  product_code: '{00000000-0000-0000-0000-000000000001}'\n minimum_os_version: 10.0.19045\n-blocking_applications:\n-  - editor.exe\n-\n preinstall_script: |\n   # PowerShell, runs before install\n   $path = \"$env:ProgramData\\Example\"\n   if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path | Out-Null }\n-\n-installed_size: 9007199254740993\n+supported_architectures:\n+- x64\n+- arm64\n+unattended_install: true\n+unattended_uninstall: false\n+uninstaller:\n+- type: msi\n+  product_code: '{00000000-0000-0000-0000-000000000001}'\n x_unknown_site_key:\n-  nested: [1, 2.5, three]\n+  nested:\n+  - 1\n+  - 2.5\n+  - three\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "mode": "CimianYaml",
+      "pass": false,
+      "detail": "31-/28+; comments in output: True; version still string: False; unattended_install still bool: True",
+      "changed_lines": {
+        "removed": 31,
+        "added": 28
+      },
+      "diff": "--- original\n+++ written\n@@ -1,46 +1,43 @@\n-# Cimian pkginfo, invented values.\n name: ExampleEditor\n-display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+display_name: Example Editor Pro\n+version: 2.10\n+blocking_applications:\n+- editor.exe\n+catalogs:\n+- testing\n+- production\n+category: Productivity\n description: An invented editor used only as a test fixture.\n developer: Example Co\n-category: Productivity\n-\n-catalogs:\n-  - testing\n-  - production\n-\n+installed_size: 9007199254740993\n installer:\n   type: msi\n   location: pkgs/apps/ExampleEditor-2.10.msi\n   hash: 0000000000000000000000000000000000000000000000000000000000000000\n   arguments:\n-    - /qn\n-    - /norestart\n-\n+  - /qn\n+  - /norestart\n installs:\n-  - type: file\n-    path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n-    version: \"2.10.0.0\"\n-  - type: msi\n-    product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n-uninstaller:\n-  - type: msi\n-    product_code: \"{00000000-0000-0000-0000-000000000001}\"\n-\n-unattended_install: true\n-unattended_uninstall: false\n-supported_architectures: [x64, arm64]\n+- type: file\n+  path: '%ProgramFiles%\\Example\\Editor\\editor.exe'\n+  version: 2.10.0.0\n+- type: msi\n+  product_code: '{00000000-0000-0000-0000-000000000001}'\n minimum_os_version: 10.0.19045\n-blocking_applications:\n-  - editor.exe\n-\n preinstall_script: |\n   # PowerShell, runs before install\n   $path = \"$env:ProgramData\\Example\"\n   if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path | Out-Null }\n-\n-installed_size: 9007199254740993\n+supported_architectures:\n+- x64\n+- arm64\n+unattended_install: true\n+unattended_uninstall: false\n+uninstaller:\n+- type: msi\n+  product_code: '{00000000-0000-0000-0000-000000000001}'\n x_unknown_site_key:\n-  nested: [1, 2.5, three]\n+  nested:\n+  - 1\n+  - 2.5\n+  - three\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "mode": "CimianYaml",
+      "pass": false,
+      "detail": "CimianStudio CimianYaml (untyped dictionary, best case for unknown keys): 9-/4+",
+      "changed_lines": {
+        "removed": 9,
+        "added": 4
+      },
+      "diff": "--- original\n+++ written\n@@ -2,24 +2,19 @@\n catalogs:\n   - testing\n   - production\n-\n included_manifests:\n   - site_default\n-\n managed_installs:\n-  - ExampleEditor   # all lab machines\n-\n+  - ExampleEditor\n conditional_items:\n-  - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n+  - condition: hostname contains 'LAB-' AND arch == 'arm64'\n     managed_installs:\n       - ExampleViewer\n-\n   - fact: department\n-    operator: \"==\"\n-    value: \"IT\"\n+    operator: ==\n+    value: IT\n     managed_installs:\n       - ExampleRemote\n-\n notes: |\n   Invented manifest.\n   Conditional items use both supported forms.\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "mode": "CimianYaml",
+      "pass": false,
+      "detail": "9-/5+; comments in output: False; version still string: False; unattended_install still bool: True",
+      "changed_lines": {
+        "removed": 9,
+        "added": 5
+      },
+      "diff": "--- original\n+++ written\n@@ -2,24 +2,20 @@\n catalogs:\n   - testing\n   - production\n-\n included_manifests:\n   - site_default\n-\n managed_installs:\n-  - ExampleEditor   # all lab machines\n-\n+  - ExampleEditor\n+  - ExampleExtra\n conditional_items:\n-  - condition: \"hostname contains 'LAB-' AND arch == 'arm64'\"\n+  - condition: hostname contains 'LAB-' AND arch == 'arm64'\n     managed_installs:\n       - ExampleViewer\n-\n   - fact: department\n-    operator: \"==\"\n-    value: \"IT\"\n+    operator: ==\n+    value: IT\n     managed_installs:\n       - ExampleRemote\n-\n notes: |\n   Invented manifest.\n   Conditional items use both supported forms.\n"
+    }
+  ]
+}

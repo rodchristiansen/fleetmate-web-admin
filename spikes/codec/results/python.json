@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "candidate": "python",
+    "python": "3.14.7",
+    "ruamel.yaml": "0.19.1",
+    "generated": "2026-10-21T02:50:10+00:00"
+  },
+  "results": [
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 2,
+      "pass": true,
+      "detail": "byte-identical=True; 0 changed lines with sort_keys=False; 54 with library defaults",
+      "changed_lines": 0,
+      "changed_lines_library_defaults": 54
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 3,
+      "pass": true,
+      "detail": "2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 4,
+      "pass": null,
+      "detail": "n/a: no comments in fixture"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 5,
+      "pass": true,
+      "detail": "span-tracking XML tag scan: 2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged; untagged control: installed_size comes back 9007199254740992"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 2,
+      "pass": true,
+      "detail": "byte-identical=True (sort_keys=False)",
+      "changed_lines": null
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 3,
+      "pass": true,
+      "detail": "reparse matches; binary offsets shift, 456 bytes differ (binary plists are not line-diffable)",
+      "changed_lines": null,
+      "changed_bytes": 456
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 4,
+      "pass": null,
+      "detail": "n/a: no comments in fixture"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 5,
+      "pass": null,
+      "detail": "n/a: binary rewrite is byte-identical; edits rewrite offsets by design"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged; untagged control: installed_size comes back 9007199254740992"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 2,
+      "pass": false,
+      "detail": "byte-identical=False; 55 changed lines with sort_keys=False; 55 with library defaults",
+      "changed_lines": 55,
+      "changed_lines_library_defaults": 55
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 3,
+      "pass": false,
+      "detail": "55 changed lines (ideal 2); reparse matches",
+      "changed_lines": 55
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "pass": false,
+      "detail": "0/1 comment-bearing lines kept; lost: ['<!-- Edited by hand; comment must survive. -->']"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 5,
+      "pass": true,
+      "detail": "span-tracking XML tag scan: 2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 2,
+      "pass": true,
+      "detail": "byte-identical=True; 0 changed lines with sort_keys=False; 20 with library defaults",
+      "changed_lines": 0,
+      "changed_lines_library_defaults": 20
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 3,
+      "pass": true,
+      "detail": "1 changed lines (ideal 1); reparse matches",
+      "changed_lines": 1
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 4,
+      "pass": null,
+      "detail": "n/a: no comments in fixture"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 5,
+      "pass": true,
+      "detail": "span-tracking XML tag scan: 1 changed lines (ideal 1); reparse matches",
+      "changed_lines": 1
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 2,
+      "pass": true,
+      "detail": "byte-identical=True; 0 changed lines with preserve_quotes, indent(2,4,2), width 4096; 6 with library defaults",
+      "changed_lines": 0,
+      "changed_lines_library_defaults": 6
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 3,
+      "pass": true,
+      "detail": "2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "pass": true,
+      "detail": "3/3 comment-bearing lines kept"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 5,
+      "pass": true,
+      "detail": "ruamel lc line/col + token scan: 2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "pass": true,
+      "detail": "byte-identical=True; 0 changed lines with preserve_quotes, indent(2,4,2), width 4096; 24 with library defaults",
+      "changed_lines": 0,
+      "changed_lines_library_defaults": 24
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "pass": true,
+      "detail": "2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "pass": true,
+      "detail": "3/3 comment-bearing lines kept"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 5,
+      "pass": true,
+      "detail": "ruamel lc line/col + token scan: 2 changed lines (ideal 2); reparse matches",
+      "changed_lines": 2
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged; untagged control: installed_size comes back 9007199254740992"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 1,
+      "pass": true,
+      "detail": "types preserved"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "pass": true,
+      "detail": "byte-identical=True; 0 changed lines with preserve_quotes, indent(2,4,2), width 4096; 24 with library defaults",
+      "changed_lines": 0,
+      "changed_lines_library_defaults": 24
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "pass": true,
+      "detail": "1 changed lines (ideal 1); reparse matches",
+      "changed_lines": 1
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "pass": true,
+      "detail": "1/1 comment-bearing lines kept"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 5,
+      "pass": true,
+      "detail": "ruamel lc line/col + token scan: 1 changed lines (ideal 1); reparse matches",
+      "changed_lines": 1
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 6,
+      "pass": true,
+      "detail": "tagged JSON round-trips through node unchanged"
+    }
+  ]
+}

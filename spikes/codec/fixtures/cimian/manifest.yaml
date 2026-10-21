@@ -1,0 +1,25 @@
+display_name: Design Lab
+catalogs:
+  - testing
+  - production
+
+included_manifests:
+  - site_default
+
+managed_installs:
+  - ExampleEditor   # all lab machines
+
+conditional_items:
+  - condition: "hostname contains 'LAB-' AND arch == 'arm64'"
+    managed_installs:
+      - ExampleViewer
+
+  - fact: department
+    operator: "=="
+    value: "IT"
+    managed_installs:
+      - ExampleRemote
+
+notes: |
+  Invented manifest.
+  Conditional items use both supported forms.

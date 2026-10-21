@@ -1,27 +1,40 @@
 # FleetMate Web Admin
 
-The shared web admin core behind
-[Munki Web Studio](https://github.com/rodchristiansen/munki-web-studio) and
-[Cimian Web Studio](https://github.com/windowsadmins/cimian-web-studio).
+A web admin for Munki and Cimian software repositories. One codebase builds
+three apps:
 
-Munki and Cimian repositories have the same shape: pkginfo, manifests,
-catalogs, and a `makecatalogs` step. This repository holds everything the two
-web studios have in common, so each studio only adds what is specific to its
-platform.
+- **FleetMate Web Admin**: manages Munki and Cimian repositories side by side.
+- **[Munki Web Studio](https://github.com/rodchristiansen/munki-web-studio)**:
+  the Munki-only build, a modern successor in spirit to MunkiWebAdmin.
+- **[Cimian Web Studio](https://github.com/windowsadmins/cimian-web-studio)**:
+  the Cimian-only build for Windows fleets.
+
+Munki and Cimian repositories share one shape: pkginfo, manifests, and catalogs
+built by `makecatalogs`. FleetMate owns the shared workspace, review flow, jobs,
+and sign-in. A small adapter per platform handles its file format, conditions,
+and tools.
 
 **Status: planning. There is no application code yet.**
 
-## Three repositories
-
-| Repository                            | Holds                                                           | Ships as                                                         |
-| ------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `rodchristiansen/fleetmate-web-admin` | Workspace UI, change sets, jobs, auth, audit, adapter contracts | Library packages, plus a combined app that opens both repo types |
-| `rodchristiansen/munki-web-studio`    | Munki adapter (plist and YAML), Mac worker, Munki conditions    | Munki Web Studio, branded for Mac admins                         |
-| `windowsadmins/cimian-web-studio`     | Cimian adapter (YAML), Windows worker, Cimian conditions        | Cimian Web Studio, branded for Windows admins                    |
+All development happens here. The two studio repositories receive releases from
+this one and hold no source of their own.
 
 ## Start here
 
-- [Architecture and the core/adapter split](docs/architecture.md)
-- [Plan and sequencing across the three repositories](docs/plan.md)
+- [Architecture: one core, two adapters](docs/architecture.md)
+- [Plan and sequencing](docs/plan.md)
+- [Releases and the studio mirrors](docs/releases.md)
+- [Munki platform plan](docs/munki/README.md)
+- [Cimian platform plan](docs/cimian/README.md)
 
-The format-specific plans live in each studio's own `docs/` directory.
+## Design studies
+
+Each platform has an interactive workspace study with invented data. To serve
+them, run this from the repository root:
+
+```sh
+python3 -m http.server 3186 --bind 127.0.0.1
+```
+
+Then open <http://127.0.0.1:3186/docs/munki/design/workspace.html> or
+<http://127.0.0.1:3186/docs/cimian/design/workspace.html>.

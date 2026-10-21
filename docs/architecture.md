@@ -82,6 +82,15 @@ A studio build is a build profile, not a fork: it selects one adapter and one
 brand theme. Anything a studio needs that the other lacks is an adapter feature
 or a theme value, never a code branch on the studio name.
 
+### Dedicated studio builds
+
+Decided 2026-10-20. A studio build is dedicated to its platform. The Munki build
+contains no Cimian adapter, fields, installer types, condition syntax, worker, or
+wording, and the Cimian build none of Munki's. Nothing from the other platform
+appears hidden or disabled; it is left out of the build. The build step drops
+the other adapter, so a stray reference fails the build instead of showing up in
+the UI. Only the combined FleetMate build carries both.
+
 ## Stack
 
 React, TypeScript, and Vite for the browser, as already proposed. The backend
@@ -93,4 +102,3 @@ one spike that round-trips both studios' fixture sets through each candidate.
 ## Open questions
 
 - Do adapters run in the core process, or as separate services the core calls?
-- Does a studio build hide the other platform's code entirely, or ship it disabled?

@@ -1,0 +1,9 @@
+[project]
+name = "fleetmate-codec-spike-python"
+version = "0.1.0"
+description = "Codec spike: Python candidate (plistlib + ruamel.yaml)"
+requires-python = ">=3.14"
+dependencies = ["ruamel.yaml==0.19.1"]
+
+[tool.uv]
+package = false

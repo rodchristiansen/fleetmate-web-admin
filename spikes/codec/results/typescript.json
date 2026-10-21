@@ -1,0 +1,786 @@
+{
+  "candidate": "typescript",
+  "node": "v26.8.1",
+  "results": [
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 1,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "detail": "failed: installed_size === 9007199254740993"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 2,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "changed_lines": 128,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a0\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b0\t2026-10-20 19:50:10\n@@ -4,50 +4,50 @@\n-<dict>\n-\t<key>name</key>\n-\t<string>ExampleEditor</string>\n-\t<key>display_name</key>\n-\t<string>Example Editor</string>\n-\t<key>version</key>\n-\t<string>2.10</string>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>category</key>\n-\t<string>Productivity</string>\n-\t<key>description</key>\n-\t<string>An invented editor used only as a test fixture.</string>\n-\t<key>installer_item_location</key>\n-\t<string>apps/ExampleEditor-2.10.dmg</string>\n-\t<key>installer_item_hash</key>\n-\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n-\t<key>installer_item_size</key>\n-\t<integer>184320</integer>\n-\t<key>installed_size</key>\n-\t<integer>9007199254740993</integer>\n-\t<key>installer_type</key>\n-\t<string>copy_from_dmg</string>\n-\t<key>items_to_copy</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>source_item</key>\n-\t\t\t<string>Example Editor.app</string>\n-\t\t\t<key>destination_path</key>\n-\t\t\t<string>/Applications</string>\n-\t\t</dict>\n-\t</array>\n-\t<key>minimum_os_version</key>\n-\t<string>13.0</string>\n-\t<key>unattended_install</key>\n-\t<true/>\n-\t<key>uninstallable</key>\n-\t<false/>\n-\t<key>_metadata</key>\n-\t<dict>\n-\t\t<key>created_by</key>\n-\t\t<string>fixture</string>\n-\t\t<key>creation_date</key>\n-\t\t<date>2026-10-20T09:30:00Z</date>\n-\t</dict>\n-\t<key>postinstall_script</key>\n-\t<string>#!/bin/sh\n+  <dict>\n+    <key>name</key>\n+    <string>ExampleEditor</string>\n+    <key>display_name</key>\n+    <string>Example Editor</string>\n+    <key>version</key>\n+    <string>2.10</string>\n+    <key>catalogs</key>\n+    <array>\n+      <string>testing</string>\n+      <string>production</string>\n+    </array>\n+    <key>category</key>\n+    <string>Productivity</string>\n+    <key>description</key>\n+    <string>An invented editor used only as a test fixture.</string>\n+    <key>installer_item_location</key>\n+    <string>apps/ExampleEditor-2.10.dmg</string>\n+    <key>installer_item_hash</key>\n+    <string>0000000000000000000000000000000000000000000000000000000000000000</string>\n+    <key>installer_item_size</key>\n+    <integer>184320</integer>\n+    <key>installed_size</key>\n+    <integer>9007199254740992</integer>\n+    <key>installer_type</key>\n+    <string>copy_from_dmg</string>\n+    <key>items_to_copy</key>\n+    <array>\n+      <dict>\n+        <key>source_item</key>\n+        <string>Example Editor.app</string>\n+        <key>destination_path</key>\n+        <string>/Applications</string>\n+      </dict>\n+    </array>\n+    <key>minimum_os_version</key>\n+    <string>13.0</string>\n+    <key>unattended_install</key>\n+    <true/>\n+    <key>uninstallable</key>\n+    <false/>\n+    <key>_metadata</key>\n+    <dict>\n+      <key>created_by</key>\n+      <string>fixture</string>\n+      <key>creation_date</key>\n+      <date>2026-10-20T09:30:00Z</date>\n+    </dict>\n+    <key>postinstall_script</key>\n+    <string>#!/bin/sh\n@@ -57,15 +57,13 @@\n-\t<key>icon_data</key>\n-\t<data>\n-\tiVBORw0KGgoAAA==\n-\t</data>\n-\t<key>x_unknown_site_key</key>\n-\t<dict>\n-\t\t<key>nested</key>\n-\t\t<array>\n-\t\t\t<integer>1</integer>\n-\t\t\t<real>2.5</real>\n-\t\t\t<string>three</string>\n-\t\t</array>\n-\t</dict>\n-</dict>\n-</plist>\n+    <key>icon_data</key>\n+    <data>iVBORw0KGgoAAA==</data>\n+    <key>x_unknown_site_key</key>\n+    <dict>\n+      <key>nested</key>\n+      <array>\n+        <integer>1</integer>\n+        <real>2.5</real>\n+        <string>three</string>\n+      </array>\n+    </dict>\n+  </dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 3,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "changed_lines": 128,
+      "ideal_changed_lines": 2,
+      "detail": "128 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a1\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b1\t2026-10-20 19:50:10\n@@ -4,50 +4,50 @@\n-<dict>\n-\t<key>name</key>\n-\t<string>ExampleEditor</string>\n-\t<key>display_name</key>\n-\t<string>Example Editor</string>\n-\t<key>version</key>\n-\t<string>2.10</string>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>category</key>\n-\t<string>Productivity</string>\n-\t<key>description</key>\n-\t<string>An invented editor used only as a test fixture.</string>\n-\t<key>installer_item_location</key>\n-\t<string>apps/ExampleEditor-2.10.dmg</string>\n-\t<key>installer_item_hash</key>\n-\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n-\t<key>installer_item_size</key>\n-\t<integer>184320</integer>\n-\t<key>installed_size</key>\n-\t<integer>9007199254740993</integer>\n-\t<key>installer_type</key>\n-\t<string>copy_from_dmg</string>\n-\t<key>items_to_copy</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>source_item</key>\n-\t\t\t<string>Example Editor.app</string>\n-\t\t\t<key>destination_path</key>\n-\t\t\t<string>/Applications</string>\n-\t\t</dict>\n-\t</array>\n-\t<key>minimum_os_version</key>\n-\t<string>13.0</string>\n-\t<key>unattended_install</key>\n-\t<true/>\n-\t<key>uninstallable</key>\n-\t<false/>\n-\t<key>_metadata</key>\n-\t<dict>\n-\t\t<key>created_by</key>\n-\t\t<string>fixture</string>\n-\t\t<key>creation_date</key>\n-\t\t<date>2026-10-20T09:30:00Z</date>\n-\t</dict>\n-\t<key>postinstall_script</key>\n-\t<string>#!/bin/sh\n+  <dict>\n+    <key>name</key>\n+    <string>ExampleEditor</string>\n+    <key>display_name</key>\n+    <string>Example Editor Pro</string>\n+    <key>version</key>\n+    <string>2.10</string>\n+    <key>catalogs</key>\n+    <array>\n+      <string>testing</string>\n+      <string>production</string>\n+    </array>\n+    <key>category</key>\n+    <string>Productivity</string>\n+    <key>description</key>\n+    <string>An invented editor used only as a test fixture.</string>\n+    <key>installer_item_location</key>\n+    <string>apps/ExampleEditor-2.10.dmg</string>\n+    <key>installer_item_hash</key>\n+    <string>0000000000000000000000000000000000000000000000000000000000000000</string>\n+    <key>installer_item_size</key>\n+    <integer>184320</integer>\n+    <key>installed_size</key>\n+    <integer>9007199254740992</integer>\n+    <key>installer_type</key>\n+    <string>copy_from_dmg</string>\n+    <key>items_to_copy</key>\n+    <array>\n+      <dict>\n+        <key>source_item</key>\n+        <string>Example Editor.app</string>\n+        <key>destination_path</key>\n+        <string>/Applications</string>\n+      </dict>\n+    </array>\n+    <key>minimum_os_version</key>\n+    <string>13.0</string>\n+    <key>unattended_install</key>\n+    <true/>\n+    <key>uninstallable</key>\n+    <false/>\n+    <key>_metadata</key>\n+    <dict>\n+      <key>created_by</key>\n+      <string>fixture</string>\n+      <key>creation_date</key>\n+      <date>2026-10-20T09:30:00Z</date>\n+    </dict>\n+    <key>postinstall_script</key>\n+    <string>#!/bin/sh\n@@ -57,15 +57,13 @@\n-\t<key>icon_data</key>\n-\t<data>\n-\tiVBORw0KGgoAAA==\n-\t</data>\n-\t<key>x_unknown_site_key</key>\n-\t<dict>\n-\t\t<key>nested</key>\n-\t\t<array>\n-\t\t\t<integer>1</integer>\n-\t\t\t<real>2.5</real>\n-\t\t\t<string>three</string>\n-\t\t</array>\n-\t</dict>\n-</dict>\n-</plist>\n+    <key>icon_data</key>\n+    <data>iVBORw0KGgoAAA==</data>\n+    <key>x_unknown_site_key</key>\n+    <dict>\n+      <key>nested</key>\n+      <array>\n+        <integer>1</integer>\n+        <real>2.5</real>\n+        <string>three</string>\n+      </array>\n+    </dict>\n+  </dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 1,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "detail": "failed: installed_size === 9007199254740993"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 2,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "changed_lines": 120,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a2\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b2\t2026-10-20 19:50:10\n@@ -4,28 +4,42 @@\n-<dict>\n-\t<key>name</key>\n-\t<string>ExampleEditor</string>\n-\t<key>display_name</key>\n-\t<string>Example Editor</string>\n-\t<key>version</key>\n-\t<string>2.10</string>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>category</key>\n-\t<string>Productivity</string>\n-\t<key>description</key>\n-\t<string>An invented editor used only as a test fixture.</string>\n-\t<key>installer_item_location</key>\n-\t<string>apps/ExampleEditor-2.10.dmg</string>\n-\t<key>installer_item_hash</key>\n-\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n-\t<key>installer_item_size</key>\n-\t<integer>184320</integer>\n-\t<key>installed_size</key>\n-\t<integer>9007199254740993</integer>\n-\t<key>installer_type</key>\n-\t<string>copy_from_dmg</string>\n-\t<key>items_to_copy</key>\n-\t<array>\n+\t<dict>\n+\t\t<key>name</key>\n+\t\t<string>ExampleEditor</string>\n+\t\t<key>display_name</key>\n+\t\t<string>Example Editor</string>\n+\t\t<key>version</key>\n+\t\t<string>2.10</string>\n+\t\t<key>catalogs</key>\n+\t\t<array>\n+\t\t\t<string>testing</string>\n+\t\t\t<string>production</string>\n+\t\t</array>\n+\t\t<key>category</key>\n+\t\t<string>Productivity</string>\n+\t\t<key>description</key>\n+\t\t<string>An invented editor used only as a test fixture.</string>\n+\t\t<key>installer_item_location</key>\n+\t\t<string>apps/ExampleEditor-2.10.dmg</string>\n+\t\t<key>installer_item_hash</key>\n+\t\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n+\t\t<key>installer_item_size</key>\n+\t\t<integer>184320</integer>\n+\t\t<key>installed_size</key>\n+\t\t<integer>9007199254740992</integer>\n+\t\t<key>installer_type</key>\n+\t\t<string>copy_from_dmg</string>\n+\t\t<key>items_to_copy</key>\n+\t\t<array>\n+\t\t\t<dict>\n+\t\t\t\t<key>source_item</key>\n+\t\t\t\t<string>Example Editor.app</string>\n+\t\t\t\t<key>destination_path</key>\n+\t\t\t\t<string>/Applications</string>\n+\t\t\t</dict>\n+\t\t</array>\n+\t\t<key>minimum_os_version</key>\n+\t\t<string>13.0</string>\n+\t\t<key>unattended_install</key>\n+\t\t<true/>\n+\t\t<key>uninstallable</key>\n+\t\t<false/>\n+\t\t<key>_metadata</key>\n@@ -33,4 +47,4 @@\n-\t\t\t<key>source_item</key>\n-\t\t\t<string>Example Editor.app</string>\n-\t\t\t<key>destination_path</key>\n-\t\t\t<string>/Applications</string>\n+\t\t\t<key>created_by</key>\n+\t\t\t<string>fixture</string>\n+\t\t\t<key>creation_date</key>\n+\t\t\t<date>2026-10-20T09:30:00Z</date>\n@@ -38,16 +52,2 @@\n-\t</array>\n-\t<key>minimum_os_version</key>\n-\t<string>13.0</string>\n-\t<key>unattended_install</key>\n-\t<true/>\n-\t<key>uninstallable</key>\n-\t<false/>\n-\t<key>_metadata</key>\n-\t<dict>\n-\t\t<key>created_by</key>\n-\t\t<string>fixture</string>\n-\t\t<key>creation_date</key>\n-\t\t<date>2026-10-20T09:30:00Z</date>\n-\t</dict>\n-\t<key>postinstall_script</key>\n-\t<string>#!/bin/sh\n+\t\t<key>postinstall_script</key>\n+\t\t<string>#!/bin/sh\n@@ -57,12 +57,11 @@\n-\t<key>icon_data</key>\n-\t<data>\n-\tiVBORw0KGgoAAA==\n-\t</data>\n-\t<key>x_unknown_site_key</key>\n-\t<dict>\n-\t\t<key>nested</key>\n-\t\t<array>\n-\t\t\t<integer>1</integer>\n-\t\t\t<real>2.5</real>\n-\t\t\t<string>three</string>\n-\t\t</array>\n+\t\t<key>icon_data</key>\n+\t\t<data>iVBORw0KGgoAAA==</data>\n+\t\t<key>x_unknown_site_key</key>\n+\t\t<dict>\n+\t\t\t<key>nested</key>\n+\t\t\t<array>\n+\t\t\t\t<integer>1</integer>\n+\t\t\t\t<real>2.5</real>\n+\t\t\t\t<string>three</string>\n+\t\t\t</array>\n+\t\t</dict>\n@@ -70 +68,0 @@\n-</dict>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 3,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "changed_lines": 120,
+      "ideal_changed_lines": 2,
+      "detail": "120 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a3\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b3\t2026-10-20 19:50:10\n@@ -4,28 +4,42 @@\n-<dict>\n-\t<key>name</key>\n-\t<string>ExampleEditor</string>\n-\t<key>display_name</key>\n-\t<string>Example Editor</string>\n-\t<key>version</key>\n-\t<string>2.10</string>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>category</key>\n-\t<string>Productivity</string>\n-\t<key>description</key>\n-\t<string>An invented editor used only as a test fixture.</string>\n-\t<key>installer_item_location</key>\n-\t<string>apps/ExampleEditor-2.10.dmg</string>\n-\t<key>installer_item_hash</key>\n-\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n-\t<key>installer_item_size</key>\n-\t<integer>184320</integer>\n-\t<key>installed_size</key>\n-\t<integer>9007199254740993</integer>\n-\t<key>installer_type</key>\n-\t<string>copy_from_dmg</string>\n-\t<key>items_to_copy</key>\n-\t<array>\n+\t<dict>\n+\t\t<key>name</key>\n+\t\t<string>ExampleEditor</string>\n+\t\t<key>display_name</key>\n+\t\t<string>Example Editor Pro</string>\n+\t\t<key>version</key>\n+\t\t<string>2.10</string>\n+\t\t<key>catalogs</key>\n+\t\t<array>\n+\t\t\t<string>testing</string>\n+\t\t\t<string>production</string>\n+\t\t</array>\n+\t\t<key>category</key>\n+\t\t<string>Productivity</string>\n+\t\t<key>description</key>\n+\t\t<string>An invented editor used only as a test fixture.</string>\n+\t\t<key>installer_item_location</key>\n+\t\t<string>apps/ExampleEditor-2.10.dmg</string>\n+\t\t<key>installer_item_hash</key>\n+\t\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n+\t\t<key>installer_item_size</key>\n+\t\t<integer>184320</integer>\n+\t\t<key>installed_size</key>\n+\t\t<integer>9007199254740992</integer>\n+\t\t<key>installer_type</key>\n+\t\t<string>copy_from_dmg</string>\n+\t\t<key>items_to_copy</key>\n+\t\t<array>\n+\t\t\t<dict>\n+\t\t\t\t<key>source_item</key>\n+\t\t\t\t<string>Example Editor.app</string>\n+\t\t\t\t<key>destination_path</key>\n+\t\t\t\t<string>/Applications</string>\n+\t\t\t</dict>\n+\t\t</array>\n+\t\t<key>minimum_os_version</key>\n+\t\t<string>13.0</string>\n+\t\t<key>unattended_install</key>\n+\t\t<true/>\n+\t\t<key>uninstallable</key>\n+\t\t<false/>\n+\t\t<key>_metadata</key>\n@@ -33,4 +47,4 @@\n-\t\t\t<key>source_item</key>\n-\t\t\t<string>Example Editor.app</string>\n-\t\t\t<key>destination_path</key>\n-\t\t\t<string>/Applications</string>\n+\t\t\t<key>created_by</key>\n+\t\t\t<string>fixture</string>\n+\t\t\t<key>creation_date</key>\n+\t\t\t<date>2026-10-20T09:30:00Z</date>\n@@ -38,16 +52,2 @@\n-\t</array>\n-\t<key>minimum_os_version</key>\n-\t<string>13.0</string>\n-\t<key>unattended_install</key>\n-\t<true/>\n-\t<key>uninstallable</key>\n-\t<false/>\n-\t<key>_metadata</key>\n-\t<dict>\n-\t\t<key>created_by</key>\n-\t\t<string>fixture</string>\n-\t\t<key>creation_date</key>\n-\t\t<date>2026-10-20T09:30:00Z</date>\n-\t</dict>\n-\t<key>postinstall_script</key>\n-\t<string>#!/bin/sh\n+\t\t<key>postinstall_script</key>\n+\t\t<string>#!/bin/sh\n@@ -57,12 +57,11 @@\n-\t<key>icon_data</key>\n-\t<data>\n-\tiVBORw0KGgoAAA==\n-\t</data>\n-\t<key>x_unknown_site_key</key>\n-\t<dict>\n-\t\t<key>nested</key>\n-\t\t<array>\n-\t\t\t<integer>1</integer>\n-\t\t\t<real>2.5</real>\n-\t\t\t<string>three</string>\n-\t\t</array>\n+\t\t<key>icon_data</key>\n+\t\t<data>iVBORw0KGgoAAA==</data>\n+\t\t<key>x_unknown_site_key</key>\n+\t\t<dict>\n+\t\t\t<key>nested</key>\n+\t\t\t<array>\n+\t\t\t\t<integer>1</integer>\n+\t\t\t\t<real>2.5</real>\n+\t\t\t\t<string>three</string>\n+\t\t\t</array>\n+\t\t</dict>\n@@ -70 +68,0 @@\n-</dict>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 1,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "detail": "failed: postinstall_script exact"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 2,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "changed_lines": 72,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a4\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b4\t2026-10-20 19:50:10\n@@ -4,68 +4,4 @@\n-<dict>\n-\t<key>name</key>\n-\t<string>ExampleEditor</string>\n-\t<key>display_name</key>\n-\t<string>Example Editor</string>\n-\t<key>version</key>\n-\t<string>2.10</string>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>category</key>\n-\t<string>Productivity</string>\n-\t<key>description</key>\n-\t<string>An invented editor used only as a test fixture.</string>\n-\t<key>installer_item_location</key>\n-\t<string>apps/ExampleEditor-2.10.dmg</string>\n-\t<key>installer_item_hash</key>\n-\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n-\t<key>installer_item_size</key>\n-\t<integer>184320</integer>\n-\t<key>installed_size</key>\n-\t<integer>9007199254740993</integer>\n-\t<key>installer_type</key>\n-\t<string>copy_from_dmg</string>\n-\t<key>items_to_copy</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>source_item</key>\n-\t\t\t<string>Example Editor.app</string>\n-\t\t\t<key>destination_path</key>\n-\t\t\t<string>/Applications</string>\n-\t\t</dict>\n-\t</array>\n-\t<key>minimum_os_version</key>\n-\t<string>13.0</string>\n-\t<key>unattended_install</key>\n-\t<true/>\n-\t<key>uninstallable</key>\n-\t<false/>\n-\t<key>_metadata</key>\n-\t<dict>\n-\t\t<key>created_by</key>\n-\t\t<string>fixture</string>\n-\t\t<key>creation_date</key>\n-\t\t<date>2026-10-20T09:30:00Z</date>\n-\t</dict>\n-\t<key>postinstall_script</key>\n-\t<string>#!/bin/sh\n-echo \"done &amp; &lt;ok&gt;\"\n-exit 0\n-</string>\n-\t<key>icon_data</key>\n-\t<data>\n-\tiVBORw0KGgoAAA==\n-\t</data>\n-\t<key>x_unknown_site_key</key>\n-\t<dict>\n-\t\t<key>nested</key>\n-\t\t<array>\n-\t\t\t<integer>1</integer>\n-\t\t\t<real>2.5</real>\n-\t\t\t<string>three</string>\n-\t\t</array>\n-\t</dict>\n-</dict>\n-</plist>\n+<dict><key>name</key><string>ExampleEditor</string><key>display_name</key><string>Example Editor</string><key>version</key><string>2.10</string><key>catalogs</key><array><string>testing</string><string>production</string></array><key>category</key><string>Productivity</string><key>description</key><string>An invented editor used only as a test fixture.</string><key>installer_item_location</key><string>apps/ExampleEditor-2.10.dmg</string><key>installer_item_hash</key><string>0000000000000000000000000000000000000000000000000000000000000000</string><key>installer_item_size</key><integer>184320</integer><key>installed_size</key><integer>9007199254740993</integer><key>installer_type</key><string>copy_from_dmg</string><key>items_to_copy</key><array><dict><key>source_item</key><string>Example Editor.app</string><key>destination_path</key><string>/Applications</string></dict></array><key>minimum_os_version</key><string>13.0</string><key>unattended_install</key><true/><key>uninstallable</key><false/><key>_metadata</key><dict><key>created_by</key><string>fixture</string><key>creation_date</key><date>2026-10-20T09:30:00Z</date></dict><key>postinstall_script</key><string>#!/bin/sh\n+echo &quot;done &amp; &lt;ok&gt;&quot;\n+exit 0</string><key>icon_data</key><data>iVBORw0KGgoAAA==</data><key>x_unknown_site_key</key><dict><key>nested</key><array><integer>1</integer><real>2.5</real><string>three</string></array></dict></dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 3,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "changed_lines": 72,
+      "ideal_changed_lines": 2,
+      "detail": "72 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a5\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b5\t2026-10-20 19:50:10\n@@ -4,68 +4,4 @@\n-<dict>\n-\t<key>name</key>\n-\t<string>ExampleEditor</string>\n-\t<key>display_name</key>\n-\t<string>Example Editor</string>\n-\t<key>version</key>\n-\t<string>2.10</string>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>category</key>\n-\t<string>Productivity</string>\n-\t<key>description</key>\n-\t<string>An invented editor used only as a test fixture.</string>\n-\t<key>installer_item_location</key>\n-\t<string>apps/ExampleEditor-2.10.dmg</string>\n-\t<key>installer_item_hash</key>\n-\t<string>0000000000000000000000000000000000000000000000000000000000000000</string>\n-\t<key>installer_item_size</key>\n-\t<integer>184320</integer>\n-\t<key>installed_size</key>\n-\t<integer>9007199254740993</integer>\n-\t<key>installer_type</key>\n-\t<string>copy_from_dmg</string>\n-\t<key>items_to_copy</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>source_item</key>\n-\t\t\t<string>Example Editor.app</string>\n-\t\t\t<key>destination_path</key>\n-\t\t\t<string>/Applications</string>\n-\t\t</dict>\n-\t</array>\n-\t<key>minimum_os_version</key>\n-\t<string>13.0</string>\n-\t<key>unattended_install</key>\n-\t<true/>\n-\t<key>uninstallable</key>\n-\t<false/>\n-\t<key>_metadata</key>\n-\t<dict>\n-\t\t<key>created_by</key>\n-\t\t<string>fixture</string>\n-\t\t<key>creation_date</key>\n-\t\t<date>2026-10-20T09:30:00Z</date>\n-\t</dict>\n-\t<key>postinstall_script</key>\n-\t<string>#!/bin/sh\n-echo \"done &amp; &lt;ok&gt;\"\n-exit 0\n-</string>\n-\t<key>icon_data</key>\n-\t<data>\n-\tiVBORw0KGgoAAA==\n-\t</data>\n-\t<key>x_unknown_site_key</key>\n-\t<dict>\n-\t\t<key>nested</key>\n-\t\t<array>\n-\t\t\t<integer>1</integer>\n-\t\t\t<real>2.5</real>\n-\t\t\t<string>three</string>\n-\t\t</array>\n-\t</dict>\n-</dict>\n-</plist>\n+<dict><key>name</key><string>ExampleEditor</string><key>display_name</key><string>Example Editor Pro</string><key>version</key><string>2.10</string><key>catalogs</key><array><string>testing</string><string>production</string></array><key>category</key><string>Productivity</string><key>description</key><string>An invented editor used only as a test fixture.</string><key>installer_item_location</key><string>apps/ExampleEditor-2.10.dmg</string><key>installer_item_hash</key><string>0000000000000000000000000000000000000000000000000000000000000000</string><key>installer_item_size</key><integer>184320</integer><key>installed_size</key><integer>9007199254740993</integer><key>installer_type</key><string>copy_from_dmg</string><key>items_to_copy</key><array><dict><key>source_item</key><string>Example Editor.app</string><key>destination_path</key><string>/Applications</string></dict></array><key>minimum_os_version</key><string>13.0</string><key>unattended_install</key><true/><key>uninstallable</key><false/><key>_metadata</key><dict><key>created_by</key><string>fixture</string><key>creation_date</key><date>2026-10-20T09:30:00Z</date></dict><key>postinstall_script</key><string>#!/bin/sh\n+echo &quot;done &amp; &lt;ok&gt;&quot;\n+exit 0</string><key>icon_data</key><data>iVBORw0KGgoAAA==</data><key>x_unknown_site_key</key><dict><key>nested</key><array><integer>1</integer><real>2.5</real><string>three</string></array></dict></dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 1,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "detail": "all 7 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 2,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "changed_lines": 0,
+      "detail": "byte-identical"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 3,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a6\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b6\t2026-10-20 19:50:10\n@@ -8 +8 @@\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 5,
+      "codec": "adapter: surgical span patch",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines; reparse ok; plutil -lint: <stdin>: OK\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a7\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b7\t2026-10-20 19:50:10\n@@ -8 +8 @@\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 6,
+      "codec": "adapter typed model (scanPlist)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 861 bytes of JSON"
+    },
+    {
+      "fixture": "munki/pkginfo-plistlib.plist",
+      "test": 6,
+      "codec": "@plist/xml.parse output (ints as number)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 859 bytes of JSON; needs heuristic: every integral number treated as integer, so a <real>1.0</real> would come back as <integer>"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 1,
+      "codec": "plist@5.0.0",
+      "pass": true,
+      "detail": "all 3 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 2,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "changed_lines": 25,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a8\t2026-10-20 19:50:10\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b8\t2026-10-20 19:50:10\n@@ -4,2 +4 @@\n-<dict>\n-    <!-- Edited by hand; comment must survive. -->\n+  <dict>\n@@ -14 +13 @@\n-        <string>testing</string>\n+      <string>testing</string>\n@@ -22,8 +21,8 @@\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n+      <dict>\n+        <key>packageid</key>\n+        <string>com.example.viewer</string>\n+        <key>version</key>\n+        <string>1.0</string>\n+        <key>optional</key>\n+        <false/>\n+      </dict>\n@@ -33,2 +32,2 @@\n-</dict>\n-</plist>\n+  </dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 3,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "changed_lines": 27,
+      "ideal_changed_lines": 2,
+      "detail": "27 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a9\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b9\t2026-10-20 19:50:11\n@@ -4,2 +4 @@\n-<dict>\n-    <!-- Edited by hand; comment must survive. -->\n+  <dict>\n@@ -9 +8 @@\n-    <string>Example Viewer</string>\n+    <string>Example Viewer Pro</string>\n@@ -14 +13 @@\n-        <string>testing</string>\n+      <string>testing</string>\n@@ -22,8 +21,8 @@\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n+      <dict>\n+        <key>packageid</key>\n+        <string>com.example.viewer</string>\n+        <key>version</key>\n+        <string>1.0</string>\n+        <key>optional</key>\n+        <false/>\n+      </dict>\n@@ -33,2 +32,2 @@\n-</dict>\n-</plist>\n+  </dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "detail": "0/1 comments survive; 0/1 comment lines verbatim (comments dropped by the parser)"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 1,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": true,
+      "detail": "all 3 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 2,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "changed_lines": 59,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a10\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b10\t2026-10-20 19:50:11\n@@ -4,30 +4,29 @@\n-<dict>\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n-</dict>\n+\t<dict>\n+\t\t<key>name</key>\n+\t\t<string>ExampleViewer</string>\n+\t\t<key>display_name</key>\n+\t\t<string>Example Viewer</string>\n+\t\t<key>version</key>\n+\t\t<string>1.0</string>\n+\t\t<key>catalogs</key>\n+\t\t<array>\n+\t\t\t<string>testing</string>\n+\t\t</array>\n+\t\t<key>installer_item_location</key>\n+\t\t<string>apps/ExampleViewer-1.0.pkg</string>\n+\t\t<key>installer_type</key>\n+\t\t<string>pkg</string>\n+\t\t<key>receipts</key>\n+\t\t<array>\n+\t\t\t<dict>\n+\t\t\t\t<key>packageid</key>\n+\t\t\t\t<string>com.example.viewer</string>\n+\t\t\t\t<key>version</key>\n+\t\t\t\t<string>1.0</string>\n+\t\t\t\t<key>optional</key>\n+\t\t\t\t<false/>\n+\t\t\t</dict>\n+\t\t</array>\n+\t\t<key>restart_action</key>\n+\t\t<string>None</string>\n+\t</dict>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 3,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "changed_lines": 59,
+      "ideal_changed_lines": 2,
+      "detail": "59 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a11\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b11\t2026-10-20 19:50:11\n@@ -4,30 +4,29 @@\n-<dict>\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n-</dict>\n+\t<dict>\n+\t\t<key>name</key>\n+\t\t<string>ExampleViewer</string>\n+\t\t<key>display_name</key>\n+\t\t<string>Example Viewer Pro</string>\n+\t\t<key>version</key>\n+\t\t<string>1.0</string>\n+\t\t<key>catalogs</key>\n+\t\t<array>\n+\t\t\t<string>testing</string>\n+\t\t</array>\n+\t\t<key>installer_item_location</key>\n+\t\t<string>apps/ExampleViewer-1.0.pkg</string>\n+\t\t<key>installer_type</key>\n+\t\t<string>pkg</string>\n+\t\t<key>receipts</key>\n+\t\t<array>\n+\t\t\t<dict>\n+\t\t\t\t<key>packageid</key>\n+\t\t\t\t<string>com.example.viewer</string>\n+\t\t\t\t<key>version</key>\n+\t\t\t\t<string>1.0</string>\n+\t\t\t\t<key>optional</key>\n+\t\t\t\t<false/>\n+\t\t\t</dict>\n+\t\t</array>\n+\t\t<key>restart_action</key>\n+\t\t<string>None</string>\n+\t</dict>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "detail": "0/1 comments survive; 0/1 comment lines verbatim (comments dropped by the parser)"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 1,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": true,
+      "detail": "all 3 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 2,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "changed_lines": 33,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a12\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b12\t2026-10-20 19:50:11\n@@ -4,31 +4,2 @@\n-<dict>\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n-</dict>\n-</plist>\n+<dict><key>name</key><string>ExampleViewer</string><key>display_name</key><string>Example Viewer</string><key>version</key><string>1.0</string><key>catalogs</key><array><string>testing</string></array><key>installer_item_location</key><string>apps/ExampleViewer-1.0.pkg</string><key>installer_type</key><string>pkg</string><key>receipts</key><array><dict><key>packageid</key><string>com.example.viewer</string><key>version</key><string>1.0</string><key>optional</key><false/></dict></array><key>restart_action</key><string>None</string></dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 3,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "changed_lines": 33,
+      "ideal_changed_lines": 2,
+      "detail": "33 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a13\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b13\t2026-10-20 19:50:11\n@@ -4,31 +4,2 @@\n-<dict>\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n-</dict>\n-</plist>\n+<dict><key>name</key><string>ExampleViewer</string><key>display_name</key><string>Example Viewer Pro</string><key>version</key><string>1.0</string><key>catalogs</key><array><string>testing</string></array><key>installer_item_location</key><string>apps/ExampleViewer-1.0.pkg</string><key>installer_type</key><string>pkg</string><key>receipts</key><array><dict><key>packageid</key><string>com.example.viewer</string><key>version</key><string>1.0</string><key>optional</key><false/></dict></array><key>restart_action</key><string>None</string></dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "detail": "0/1 comments survive; 0/1 comment lines verbatim (comments dropped by the parser)"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 1,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "detail": "all 3 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 2,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": false,
+      "changed_lines": 55,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a14\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b14\t2026-10-20 19:50:11\n@@ -5,28 +5,27 @@\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n+\t<key>name</key>\n+\t<string>ExampleViewer</string>\n+\t<key>display_name</key>\n+\t<string>Example Viewer</string>\n+\t<key>version</key>\n+\t<string>1.0</string>\n+\t<key>catalogs</key>\n+\t<array>\n+\t\t<string>testing</string>\n+\t</array>\n+\t<key>installer_item_location</key>\n+\t<string>apps/ExampleViewer-1.0.pkg</string>\n+\t<key>installer_type</key>\n+\t<string>pkg</string>\n+\t<key>receipts</key>\n+\t<array>\n+\t\t<dict>\n+\t\t\t<key>packageid</key>\n+\t\t\t<string>com.example.viewer</string>\n+\t\t\t<key>version</key>\n+\t\t\t<string>1.0</string>\n+\t\t\t<key>optional</key>\n+\t\t\t<false/>\n+\t\t</dict>\n+\t</array>\n+\t<key>restart_action</key>\n+\t<string>None</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 3,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": false,
+      "changed_lines": 55,
+      "ideal_changed_lines": 2,
+      "detail": "55 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a15\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b15\t2026-10-20 19:50:11\n@@ -5,28 +5,27 @@\n-    <!-- Edited by hand; comment must survive. -->\n-    <key>name</key>\n-    <string>ExampleViewer</string>\n-    <key>display_name</key>\n-    <string>Example Viewer</string>\n-    <key>version</key>\n-    <string>1.0</string>\n-    <key>catalogs</key>\n-    <array>\n-        <string>testing</string>\n-    </array>\n-    <key>installer_item_location</key>\n-    <string>apps/ExampleViewer-1.0.pkg</string>\n-    <key>installer_type</key>\n-    <string>pkg</string>\n-    <key>receipts</key>\n-    <array>\n-        <dict>\n-            <key>packageid</key>\n-            <string>com.example.viewer</string>\n-            <key>version</key>\n-            <string>1.0</string>\n-            <key>optional</key>\n-            <false/>\n-        </dict>\n-    </array>\n-    <key>restart_action</key>\n-    <string>None</string>\n+\t<key>name</key>\n+\t<string>ExampleViewer</string>\n+\t<key>display_name</key>\n+\t<string>Example Viewer Pro</string>\n+\t<key>version</key>\n+\t<string>1.0</string>\n+\t<key>catalogs</key>\n+\t<array>\n+\t\t<string>testing</string>\n+\t</array>\n+\t<key>installer_item_location</key>\n+\t<string>apps/ExampleViewer-1.0.pkg</string>\n+\t<key>installer_type</key>\n+\t<string>pkg</string>\n+\t<key>receipts</key>\n+\t<array>\n+\t\t<dict>\n+\t\t\t<key>packageid</key>\n+\t\t\t<string>com.example.viewer</string>\n+\t\t\t<key>version</key>\n+\t\t\t<string>1.0</string>\n+\t\t\t<key>optional</key>\n+\t\t\t<false/>\n+\t\t</dict>\n+\t</array>\n+\t<key>restart_action</key>\n+\t<string>None</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": false,
+      "detail": "0/1 comments survive; 0/1 comment lines verbatim (comments dropped by the parser)"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 5,
+      "codec": "adapter: surgical span patch",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines; reparse ok; plutil -lint: <stdin>: OK\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a16\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b16\t2026-10-20 19:50:11\n@@ -9 +9 @@\n-    <string>Example Viewer</string>\n+    <string>Example Viewer Pro</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 4,
+      "codec": "adapter: surgical span patch",
+      "pass": true,
+      "detail": "1/1 comments survive; 1/1 comment lines verbatim"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 6,
+      "codec": "adapter typed model (scanPlist)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 278 bytes of JSON"
+    },
+    {
+      "fixture": "munki/pkginfo-handformatted.plist",
+      "test": 6,
+      "codec": "@plist/xml.parse output (ints as number)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 278 bytes of JSON; needs heuristic: every integral number treated as integer, so a <real>1.0</real> would come back as <integer>"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 1,
+      "codec": "plist@5.0.0",
+      "pass": true,
+      "detail": "all 2 checks pass"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 2,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "changed_lines": 58,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a17\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b17\t2026-10-20 19:50:11\n@@ -4,29 +4,29 @@\n-<dict>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>included_manifests</key>\n-\t<array>\n-\t\t<string>site/base</string>\n-\t\t<string>site/browsers</string>\n-\t</array>\n-\t<key>managed_installs</key>\n-\t<array>\n-\t\t<string>ExampleEditor</string>\n-\t\t<string>ExampleViewer</string>\n-\t</array>\n-\t<key>conditional_items</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n-\t\t\t<key>managed_installs</key>\n-\t\t\t<array>\n-\t\t\t\t<string>ExampleVPN</string>\n-\t\t\t</array>\n-\t\t</dict>\n-\t</array>\n-</dict>\n-</plist>\n+  <dict>\n+    <key>catalogs</key>\n+    <array>\n+      <string>testing</string>\n+      <string>production</string>\n+    </array>\n+    <key>included_manifests</key>\n+    <array>\n+      <string>site/base</string>\n+      <string>site/browsers</string>\n+    </array>\n+    <key>managed_installs</key>\n+    <array>\n+      <string>ExampleEditor</string>\n+      <string>ExampleViewer</string>\n+    </array>\n+    <key>conditional_items</key>\n+    <array>\n+      <dict>\n+        <key>condition</key>\n+        <string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n+        <key>managed_installs</key>\n+        <array>\n+          <string>ExampleVPN</string>\n+        </array>\n+      </dict>\n+    </array>\n+  </dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 3,
+      "codec": "plist@5.0.0",
+      "pass": false,
+      "changed_lines": 59,
+      "ideal_changed_lines": 1,
+      "detail": "59 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a18\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b18\t2026-10-20 19:50:11\n@@ -4,29 +4,30 @@\n-<dict>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>included_manifests</key>\n-\t<array>\n-\t\t<string>site/base</string>\n-\t\t<string>site/browsers</string>\n-\t</array>\n-\t<key>managed_installs</key>\n-\t<array>\n-\t\t<string>ExampleEditor</string>\n-\t\t<string>ExampleViewer</string>\n-\t</array>\n-\t<key>conditional_items</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n-\t\t\t<key>managed_installs</key>\n-\t\t\t<array>\n-\t\t\t\t<string>ExampleVPN</string>\n-\t\t\t</array>\n-\t\t</dict>\n-\t</array>\n-</dict>\n-</plist>\n+  <dict>\n+    <key>catalogs</key>\n+    <array>\n+      <string>testing</string>\n+      <string>production</string>\n+    </array>\n+    <key>included_manifests</key>\n+    <array>\n+      <string>site/base</string>\n+      <string>site/browsers</string>\n+    </array>\n+    <key>managed_installs</key>\n+    <array>\n+      <string>ExampleEditor</string>\n+      <string>ExampleViewer</string>\n+      <string>ExampleExtra</string>\n+    </array>\n+    <key>conditional_items</key>\n+    <array>\n+      <dict>\n+        <key>condition</key>\n+        <string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n+        <key>managed_installs</key>\n+        <array>\n+          <string>ExampleVPN</string>\n+        </array>\n+      </dict>\n+    </array>\n+  </dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 1,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": true,
+      "detail": "all 2 checks pass"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 2,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "changed_lines": 56,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a19\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b19\t2026-10-20 19:50:11\n@@ -4,28 +4,28 @@\n-<dict>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>included_manifests</key>\n-\t<array>\n-\t\t<string>site/base</string>\n-\t\t<string>site/browsers</string>\n-\t</array>\n-\t<key>managed_installs</key>\n-\t<array>\n-\t\t<string>ExampleEditor</string>\n-\t\t<string>ExampleViewer</string>\n-\t</array>\n-\t<key>conditional_items</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n-\t\t\t<key>managed_installs</key>\n-\t\t\t<array>\n-\t\t\t\t<string>ExampleVPN</string>\n-\t\t\t</array>\n-\t\t</dict>\n-\t</array>\n-</dict>\n+\t<dict>\n+\t\t<key>catalogs</key>\n+\t\t<array>\n+\t\t\t<string>testing</string>\n+\t\t\t<string>production</string>\n+\t\t</array>\n+\t\t<key>included_manifests</key>\n+\t\t<array>\n+\t\t\t<string>site/base</string>\n+\t\t\t<string>site/browsers</string>\n+\t\t</array>\n+\t\t<key>managed_installs</key>\n+\t\t<array>\n+\t\t\t<string>ExampleEditor</string>\n+\t\t\t<string>ExampleViewer</string>\n+\t\t</array>\n+\t\t<key>conditional_items</key>\n+\t\t<array>\n+\t\t\t<dict>\n+\t\t\t\t<key>condition</key>\n+\t\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n+\t\t\t\t<key>managed_installs</key>\n+\t\t\t\t<array>\n+\t\t\t\t\t<string>ExampleVPN</string>\n+\t\t\t\t</array>\n+\t\t\t</dict>\n+\t\t</array>\n+\t</dict>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 3,
+      "codec": "plist@5.0.0 indent=tab",
+      "pass": false,
+      "changed_lines": 57,
+      "ideal_changed_lines": 1,
+      "detail": "57 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a20\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b20\t2026-10-20 19:50:11\n@@ -4,28 +4,29 @@\n-<dict>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>included_manifests</key>\n-\t<array>\n-\t\t<string>site/base</string>\n-\t\t<string>site/browsers</string>\n-\t</array>\n-\t<key>managed_installs</key>\n-\t<array>\n-\t\t<string>ExampleEditor</string>\n-\t\t<string>ExampleViewer</string>\n-\t</array>\n-\t<key>conditional_items</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n-\t\t\t<key>managed_installs</key>\n-\t\t\t<array>\n-\t\t\t\t<string>ExampleVPN</string>\n-\t\t\t</array>\n-\t\t</dict>\n-\t</array>\n-</dict>\n+\t<dict>\n+\t\t<key>catalogs</key>\n+\t\t<array>\n+\t\t\t<string>testing</string>\n+\t\t\t<string>production</string>\n+\t\t</array>\n+\t\t<key>included_manifests</key>\n+\t\t<array>\n+\t\t\t<string>site/base</string>\n+\t\t\t<string>site/browsers</string>\n+\t\t</array>\n+\t\t<key>managed_installs</key>\n+\t\t<array>\n+\t\t\t<string>ExampleEditor</string>\n+\t\t\t<string>ExampleViewer</string>\n+\t\t\t<string>ExampleExtra</string>\n+\t\t</array>\n+\t\t<key>conditional_items</key>\n+\t\t<array>\n+\t\t\t<dict>\n+\t\t\t\t<key>condition</key>\n+\t\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n+\t\t\t\t<key>managed_installs</key>\n+\t\t\t\t<array>\n+\t\t\t\t\t<string>ExampleVPN</string>\n+\t\t\t\t</array>\n+\t\t\t</dict>\n+\t\t</array>\n+\t</dict>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 1,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": true,
+      "detail": "all 2 checks pass"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 2,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "changed_lines": 31,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a21\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b21\t2026-10-20 19:50:11\n@@ -4,29 +4,2 @@\n-<dict>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>included_manifests</key>\n-\t<array>\n-\t\t<string>site/base</string>\n-\t\t<string>site/browsers</string>\n-\t</array>\n-\t<key>managed_installs</key>\n-\t<array>\n-\t\t<string>ExampleEditor</string>\n-\t\t<string>ExampleViewer</string>\n-\t</array>\n-\t<key>conditional_items</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n-\t\t\t<key>managed_installs</key>\n-\t\t\t<array>\n-\t\t\t\t<string>ExampleVPN</string>\n-\t\t\t</array>\n-\t\t</dict>\n-\t</array>\n-</dict>\n-</plist>\n+<dict><key>catalogs</key><array><string>testing</string><string>production</string></array><key>included_manifests</key><array><string>site/base</string><string>site/browsers</string></array><key>managed_installs</key><array><string>ExampleEditor</string><string>ExampleViewer</string></array><key>conditional_items</key><array><dict><key>condition</key><string>machine_type == &quot;laptop&quot; AND os_vers_major &gt;= 14</string><key>managed_installs</key><array><string>ExampleVPN</string></array></dict></array></dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 3,
+      "codec": "@plist/xml.parse@1.1.0 + xml.serialize@1.1.1",
+      "pass": false,
+      "changed_lines": 31,
+      "ideal_changed_lines": 1,
+      "detail": "31 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a22\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b22\t2026-10-20 19:50:11\n@@ -4,29 +4,2 @@\n-<dict>\n-\t<key>catalogs</key>\n-\t<array>\n-\t\t<string>testing</string>\n-\t\t<string>production</string>\n-\t</array>\n-\t<key>included_manifests</key>\n-\t<array>\n-\t\t<string>site/base</string>\n-\t\t<string>site/browsers</string>\n-\t</array>\n-\t<key>managed_installs</key>\n-\t<array>\n-\t\t<string>ExampleEditor</string>\n-\t\t<string>ExampleViewer</string>\n-\t</array>\n-\t<key>conditional_items</key>\n-\t<array>\n-\t\t<dict>\n-\t\t\t<key>condition</key>\n-\t\t\t<string>machine_type == \"laptop\" AND os_vers_major &gt;= 14</string>\n-\t\t\t<key>managed_installs</key>\n-\t\t\t<array>\n-\t\t\t\t<string>ExampleVPN</string>\n-\t\t\t</array>\n-\t\t</dict>\n-\t</array>\n-</dict>\n-</plist>\n+<dict><key>catalogs</key><array><string>testing</string><string>production</string></array><key>included_manifests</key><array><string>site/base</string><string>site/browsers</string></array><key>managed_installs</key><array><string>ExampleEditor</string><string>ExampleViewer</string><string>ExampleExtra</string></array><key>conditional_items</key><array><dict><key>condition</key><string>machine_type == &quot;laptop&quot; AND os_vers_major &gt;= 14</string><key>managed_installs</key><array><string>ExampleVPN</string></array></dict></array></dict>\n+</plist>\n\\ No newline at end of file\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 1,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "detail": "all 2 checks pass"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 2,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "changed_lines": 0,
+      "detail": "byte-identical"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 3,
+      "codec": "adapter: span scanner + plistlib-layout writer",
+      "pass": true,
+      "changed_lines": 1,
+      "ideal_changed_lines": 1,
+      "detail": "1 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a23\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b23\t2026-10-20 19:50:11\n@@ -18,0 +19 @@\n+\t\t<string>ExampleExtra</string>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 5,
+      "codec": "adapter: surgical span patch",
+      "pass": true,
+      "changed_lines": 1,
+      "ideal_changed_lines": 1,
+      "detail": "1 changed lines; reparse ok; plutil -lint: <stdin>: OK\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a24\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b24\t2026-10-20 19:50:11\n@@ -18,0 +19 @@\n+\t\t<string>ExampleExtra</string>\n"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 6,
+      "codec": "adapter typed model (scanPlist)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 264 bytes of JSON"
+    },
+    {
+      "fixture": "munki/manifest-plistlib.plist",
+      "test": 6,
+      "codec": "@plist/xml.parse output (ints as number)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 264 bytes of JSON; needs heuristic: every integral number treated as integer, so a <real>1.0</real> would come back as <integer>"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 1,
+      "codec": "plist@5.0.0 (parseBinary/buildBinary)",
+      "pass": false,
+      "detail": "failed: installed_size === 9007199254740993"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 2,
+      "codec": "plist@5.0.0 (parseBinary/buildBinary)",
+      "pass": false,
+      "changed_lines": 2,
+      "ideal_changed_lines": 0,
+      "detail": "bytes differ (931 -> 931 bytes); values+key order CHANGED; changed lines measured on plutil xml1 rendering\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a25\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b25\t2026-10-20 19:50:11\n@@ -28 +28 @@\n-\t<integer>9007199254740993</integer>\n+\t<real>9007199254740992</real>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 3,
+      "codec": "plist@5.0.0 (parseBinary/buildBinary)",
+      "pass": false,
+      "changed_lines": 4,
+      "ideal_changed_lines": 2,
+      "detail": "bytes differ (931 -> 937 bytes); values+key order CHANGED; changed lines measured on plutil xml1 rendering\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a26\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b26\t2026-10-20 19:50:11\n@@ -22 +22 @@\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n@@ -28 +28 @@\n-\t<integer>9007199254740993</integer>\n+\t<real>9007199254740992</real>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 1,
+      "codec": "@plist/binary.parse@1.1.0 + binary.serialize@1.1.0",
+      "pass": true,
+      "detail": "all 7 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 2,
+      "codec": "@plist/binary.parse@1.1.0 + binary.serialize@1.1.0",
+      "pass": false,
+      "changed_lines": 0,
+      "ideal_changed_lines": 0,
+      "detail": "bytes differ (931 -> 939 bytes); values+key order preserved; changed lines measured on plutil xml1 rendering\n"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 3,
+      "codec": "@plist/binary.parse@1.1.0 + binary.serialize@1.1.0",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "bytes differ (931 -> 945 bytes); values+key order preserved; changed lines measured on plutil xml1 rendering\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a27\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b27\t2026-10-20 19:50:11\n@@ -22 +22 @@\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 1,
+      "codec": "bplist-parser@0.5.0 + bplist-creator@0.3.0",
+      "pass": true,
+      "detail": "all 7 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 2,
+      "codec": "bplist-parser@0.5.0 + bplist-creator@0.3.0",
+      "pass": true,
+      "changed_lines": 0,
+      "ideal_changed_lines": 0,
+      "detail": "bytes identical; values+key order preserved; changed lines measured on plutil xml1 rendering\n"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 3,
+      "codec": "bplist-parser@0.5.0 + bplist-creator@0.3.0",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "bytes differ (931 -> 937 bytes); values+key order preserved; changed lines measured on plutil xml1 rendering\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a28\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b28\t2026-10-20 19:50:11\n@@ -22 +22 @@\n-\t<string>Example Editor</string>\n+\t<string>Example Editor Pro</string>\n"
+    },
+    {
+      "fixture": "munki/pkginfo-binary.plist",
+      "test": 6,
+      "codec": "bplist-parser output (ints as number unless > 2^53)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 861 bytes of JSON; needs heuristic: integral numbers treated as integers; binary real 1.0 would be misread"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 1,
+      "codec": "yaml@2.9.1 intAsBigInt",
+      "pass": true,
+      "detail": "all 5 checks pass"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": true,
+      "changed_lines": 0,
+      "detail": "byte-identical"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a29\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b29\t2026-10-20 19:50:11\n@@ -3 +3 @@\n-display_name: Example CLI\n+display_name: Example CLI Pro\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": true,
+      "detail": "1/1 comments survive; 1/1 comment lines verbatim"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": true,
+      "changed_lines": 0,
+      "detail": "byte-identical"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a30\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b30\t2026-10-20 19:50:11\n@@ -3 +3 @@\n-display_name: Example CLI\n+display_name: Example CLI Pro\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": true,
+      "detail": "1/1 comments survive; 1/1 comment lines verbatim"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": true,
+      "changed_lines": 0,
+      "detail": "byte-identical"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a31\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b31\t2026-10-20 19:50:11\n@@ -3 +3 @@\n-display_name: Example CLI\n+display_name: Example CLI Pro\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": true,
+      "detail": "1/1 comments survive; 1/1 comment lines verbatim"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 5,
+      "codec": "adapter: surgical node-range patch",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines; reparse ok\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a32\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b32\t2026-10-20 19:50:11\n@@ -3 +3 @@\n-display_name: Example CLI\n+display_name: Example CLI Pro\n"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 4,
+      "codec": "adapter: surgical node-range patch",
+      "pass": true,
+      "detail": "1/1 comments survive; 1/1 comment lines verbatim"
+    },
+    {
+      "fixture": "munki/pkginfo.yaml",
+      "test": 6,
+      "codec": "yaml@2.9.1 toJS (intAsBigInt)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 433 bytes of JSON"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 1,
+      "codec": "yaml@2.9.1 intAsBigInt",
+      "pass": false,
+      "detail": "failed: installer.hash is the 64-char string"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": false,
+      "changed_lines": 8,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a33\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b33\t2026-10-20 19:50:11\n@@ -4 +4 @@\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n@@ -16 +16 @@\n-  hash: 0000000000000000000000000000000000000000000000000000000000000000\n+  hash: 0\n@@ -34 +34 @@\n-supported_architectures: [x64, arm64]\n+supported_architectures: [ x64, arm64 ]\n@@ -46 +46 @@\n-  nested: [1, 2.5, three]\n+  nested: [ 1, 2.5, three ]\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": false,
+      "changed_lines": 10,
+      "ideal_changed_lines": 2,
+      "detail": "10 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a34\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b34\t2026-10-20 19:50:11\n@@ -3,2 +3,2 @@\n-display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+display_name: Example Editor Pro\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n@@ -16 +16 @@\n-  hash: 0000000000000000000000000000000000000000000000000000000000000000\n+  hash: 0\n@@ -34 +34 @@\n-supported_architectures: [x64, arm64]\n+supported_architectures: [ x64, arm64 ]\n@@ -46 +46 @@\n-  nested: [1, 2.5, three]\n+  nested: [ 1, 2.5, three ]\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": true,
+      "detail": "2/2 comments survive; 1/2 comment lines verbatim (spaces before an inline comment collapsed to one)"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": false,
+      "changed_lines": 4,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a35\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b35\t2026-10-20 19:50:11\n@@ -4 +4 @@\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n@@ -16 +16 @@\n-  hash: 0000000000000000000000000000000000000000000000000000000000000000\n+  hash: 0\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": false,
+      "changed_lines": 6,
+      "ideal_changed_lines": 2,
+      "detail": "6 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a36\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b36\t2026-10-20 19:50:11\n@@ -3,2 +3,2 @@\n-display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+display_name: Example Editor Pro\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n@@ -16 +16 @@\n-  hash: 0000000000000000000000000000000000000000000000000000000000000000\n+  hash: 0\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": true,
+      "detail": "2/2 comments survive; 1/2 comment lines verbatim (spaces before an inline comment collapsed to one)"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": false,
+      "changed_lines": 2,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a37\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b37\t2026-10-20 19:50:11\n@@ -4 +4 @@\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": false,
+      "changed_lines": 4,
+      "ideal_changed_lines": 2,
+      "detail": "4 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a38\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b38\t2026-10-20 19:50:11\n@@ -3,2 +3,2 @@\n-display_name: Example Editor\n-version: \"2.10\"   # quoted: must stay a string, not 2.1\n+display_name: Example Editor Pro\n+version: \"2.10\" # quoted: must stay a string, not 2.1\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": true,
+      "detail": "2/2 comments survive; 1/2 comment lines verbatim (spaces before an inline comment collapsed to one)"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 5,
+      "codec": "adapter: surgical node-range patch",
+      "pass": true,
+      "changed_lines": 2,
+      "ideal_changed_lines": 2,
+      "detail": "2 changed lines; reparse ok\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a39\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b39\t2026-10-20 19:50:11\n@@ -3 +3 @@\n-display_name: Example Editor\n+display_name: Example Editor Pro\n"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 4,
+      "codec": "adapter: surgical node-range patch",
+      "pass": true,
+      "detail": "2/2 comments survive; 2/2 comment lines verbatim"
+    },
+    {
+      "fixture": "cimian/pkginfo.yaml",
+      "test": 6,
+      "codec": "yaml@2.9.1 toJS (intAsBigInt)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 1045 bytes of JSON"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 1,
+      "codec": "yaml@2.9.1 intAsBigInt",
+      "pass": true,
+      "detail": "all 2 checks pass"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": false,
+      "changed_lines": 2,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a40\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b40\t2026-10-20 19:50:11\n@@ -10 +10 @@\n-  - ExampleEditor   # all lab machines\n+  - ExampleEditor # all lab machines\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": false,
+      "changed_lines": 3,
+      "ideal_changed_lines": 1,
+      "detail": "3 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a41\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b41\t2026-10-20 19:50:11\n@@ -10 +10,2 @@\n-  - ExampleEditor   # all lab machines\n+  - ExampleEditor # all lab machines\n+  - ExampleExtra\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 defaults",
+      "pass": true,
+      "detail": "1/1 comments survive; 0/1 comment lines verbatim (spaces before an inline comment collapsed to one)"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": false,
+      "changed_lines": 2,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a42\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b42\t2026-10-20 19:50:11\n@@ -10 +10 @@\n-  - ExampleEditor   # all lab machines\n+  - ExampleEditor # all lab machines\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": false,
+      "changed_lines": 3,
+      "ideal_changed_lines": 1,
+      "detail": "3 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a43\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b43\t2026-10-20 19:50:11\n@@ -10 +10,2 @@\n-  - ExampleEditor   # all lab machines\n+  - ExampleEditor # all lab machines\n+  - ExampleExtra\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 tuned (lineWidth 0, flowCollectionPadding false)",
+      "pass": true,
+      "detail": "1/1 comments survive; 0/1 comment lines verbatim (spaces before an inline comment collapsed to one)"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 2,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": false,
+      "changed_lines": 2,
+      "detail": "not identical\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a44\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b44\t2026-10-20 19:50:11\n@@ -10 +10 @@\n-  - ExampleEditor   # all lab machines\n+  - ExampleEditor # all lab machines\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 3,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": false,
+      "changed_lines": 3,
+      "ideal_changed_lines": 1,
+      "detail": "3 changed lines\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a45\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b45\t2026-10-20 19:50:11\n@@ -10 +10,2 @@\n-  - ExampleEditor   # all lab machines\n+  - ExampleEditor # all lab machines\n+  - ExampleExtra\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "codec": "yaml@2.9.1 tuned + source-preserving number tags",
+      "pass": true,
+      "detail": "1/1 comments survive; 0/1 comment lines verbatim (spaces before an inline comment collapsed to one)"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 5,
+      "codec": "adapter: surgical node-range patch",
+      "pass": true,
+      "changed_lines": 1,
+      "ideal_changed_lines": 1,
+      "detail": "1 changed lines; reparse ok\n--- /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/a46\t2026-10-20 19:50:11\n+++ /var/folders/5d/2yp27vj15j345g05tv9bby2m0000gp/T/codec-ts-BVat1Y/b46\t2026-10-20 19:50:11\n@@ -10,0 +11 @@\n+  - ExampleExtra\n"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 4,
+      "codec": "adapter: surgical node-range patch",
+      "pass": true,
+      "detail": "1/1 comments survive; 1/1 comment lines verbatim"
+    },
+    {
+      "fixture": "cimian/manifest.yaml",
+      "test": 6,
+      "codec": "yaml@2.9.1 toJS (intAsBigInt)",
+      "pass": true,
+      "detail": "round-trips exactly (types, key order, bytes, dates, bigints); 424 bytes of JSON"
+    }
+  ]
+}

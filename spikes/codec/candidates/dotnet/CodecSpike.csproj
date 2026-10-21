@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CimianYamlSource Condition="'$(CimianYamlSource)' == ''">$(HOME)/Developer/GitHub/windowsadmins/cimianstudio/src/CimianStudio.Infrastructure/Yaml/CimianYaml.cs</CimianYamlSource>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" />
+    <PackageReference Include="plist-cil" />
+  </ItemGroup>
+  <ItemGroup Condition="Exists('$(CimianYamlSource)')">
+    <Compile Include="$(CimianYamlSource)" Link="Cimian/CimianYaml.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition="Exists('$(CimianYamlSource)')">
+    <DefineConstants>$(DefineConstants);CIMIAN_YAML</DefineConstants>
+  </PropertyGroup>
+</Project>

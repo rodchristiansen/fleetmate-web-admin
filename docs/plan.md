@@ -16,21 +16,21 @@ Status: proposal · 2026-10-20
    core; field-level write support in each adapter.
 5. **Workers.** One job contract; the Mac and Windows workers each start with
    `makecatalogs`.
-6. **Studio builds.** Munki-only and Cimian-only distributions once the combined
-   app works.
+6. **Studio builds.** Munki-only and Cimian-only build profiles once the combined
+   app works, published to the studio mirrors by the release job.
 
-## What moves out of the studio plans
+## Platform plans
 
-The studio plans in `munki-web-studio/docs` and `cimian-web-studio/docs` keep
-their format, condition, and tool details. Their sections on change sets,
-concurrent writes, jobs, identity, and audit become references to this
-repository's architecture once it is accepted.
+The format, condition, and tool details for each platform live under
+[`docs/munki/`](munki/README.md) and [`docs/cimian/`](cimian/README.md). Their
+sections on change sets, concurrent writes, jobs, identity, and audit defer to
+this directory's [architecture](architecture.md) once it is accepted.
 
 ## Open decisions
 
 | Decision    | Proposed default                          | What could change it                        |
 | ----------- | ----------------------------------------- | ------------------------------------------- |
-| Code layout | Core here; studios depend on its packages | A monorepo is simpler to change in lockstep |
+| Code layout | Decided 2026-10-20: one repository; studios are release-only mirrors | — |
 | Backend     | Decided by the dual-codec spike           | —                                           |
 | Deployment  | Combined app first; studio builds later   | Demand for a single-platform install first  |
 | License     | Undecided; MIT matches Cimian             | Public release of either studio             |

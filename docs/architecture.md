@@ -64,16 +64,23 @@ worker runs Cimian tools. Each reports its capabilities and tool versions in a
 handshake. The UI shows a job as unavailable, with the reason, when no worker
 for it is connected.
 
-## How the three repositories ship
+## One repository, three builds
 
-- **fleetmate-web-admin** publishes the core as packages (UI shell, API, contracts)
-  and a combined app that loads both adapters, for admins who run both platforms.
-- **munki-web-studio** depends on the core, adds the Munki adapter and Mac worker,
-  and ships a Munki-only build with Munki branding.
-- **cimian-web-studio** does the same for Cimian with the Windows worker.
+All code lives in this repository: the core, both adapters, and both workers.
+Development, issues for code, and pull requests happen here only. One release
+produces three builds:
 
-Each studio is a thin distribution. If a studio needs a change in shared
-behavior, the change goes into the core, not into a studio fork of it.
+| Build | Contents | Published to |
+| --- | --- | --- |
+| FleetMate Web Admin | Core plus both adapters, for admins who run both platforms | This repository's releases |
+| Munki Web Studio | Core plus the Munki adapter, Munki branding, Mac worker | `rodchristiansen/munki-web-studio` |
+| Cimian Web Studio | Core plus the Cimian adapter, Cimian branding, Windows worker | `windowsadmins/cimian-web-studio` |
+
+The studio repositories are release-only mirrors. See [releases](releases.md).
+
+A studio build is a build profile, not a fork: it selects one adapter and one
+brand theme. Anything a studio needs that the other lacks is an adapter feature
+or a theme value, never a code branch on the studio name.
 
 ## Stack
 
@@ -85,7 +92,5 @@ one spike that round-trips both studios' fixture sets through each candidate.
 
 ## Open questions
 
-- One deployment serving both repo types, or separate deployments per studio?
 - Do adapters run in the core process, or as separate services the core calls?
-- Package distribution for the core: a private registry, Git dependencies, or
-  a monorepo with the studios as thin wrappers?
+- Does a studio build hide the other platform's code entirely, or ship it disabled?

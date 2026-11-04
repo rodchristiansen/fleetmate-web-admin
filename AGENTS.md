@@ -37,4 +37,4 @@ development without explicit authorization.
 All deployable configuration belongs in versioned IaC and the reviewed deployment
 path. Planning does not authorize cloud provisioning or identity changes. Keep
 application state, repository content, credentials, and package payloads out of
-this repository. Select a license before public distribution.
+this repository. Licensed MIT (`LICENSE`).

@@ -6,7 +6,7 @@ Status: proposal · 2026-11-04
 
 Most work happens in the studios. FleetMate starts once there is something to host.
 
-1. **Studios: backend decision.** Done 2026-11-04: Python for both studios.
+1. **Studios: backend decision.** Done 2026-11-04: Python with FastAPI for both studios.
 2. **Studios: read-only explorers.** Each studio ships its own read-only
    explorer and runs alone. Nothing here yet.
 3. **Studios: hosting surface.** Each studio exposes the surface described in its
@@ -24,5 +24,5 @@ Most work happens in the studios. FleetMate starts once there is something to ho
 | Hosting         | In process, both studios as Python packages     | Studios choosing different runtimes |
 | App state       | One database, a schema per studio               | Separate backup or retention needs  |
 | Release cadence | FleetMate releases after either studio releases | Contract changes needing both       |
-| License         | Matches the studios                             | —                                   |
-| Visibility      | Private while planning                          | First usable release                |
+| License | MIT, decided 2026-11-04 | — |
+| Visibility | Public, decided 2026-11-04 | — |

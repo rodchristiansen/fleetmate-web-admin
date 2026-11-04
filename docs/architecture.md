@@ -48,7 +48,7 @@ shell itself uses a neutral FleetMate theme.
 
 ## Backend
 
-Both studios are recommended to use Python (see either studio's
+Both studios use Python, decided 2026-11-04 (see either studio's
 `docs/backend.md`). Hosting both in one process requires that they share a
 runtime. If they ever diverge, FleetMate would run them as two processes behind
 one proxy instead, which keeps the same user experience at higher operating cost.

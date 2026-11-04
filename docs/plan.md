@@ -6,8 +6,7 @@ Status: proposal · 2026-11-04
 
 Most work happens in the studios. FleetMate starts once there is something to host.
 
-1. **Studios: backend decision.** Accept or change the recommendation in each
-   studio's `docs/backend.md`.
+1. **Studios: backend decision.** Done 2026-11-04: Python for both studios.
 2. **Studios: read-only explorers.** Each studio ships its own read-only
    explorer and runs alone. Nothing here yet.
 3. **Studios: hosting surface.** Each studio exposes the surface described in its

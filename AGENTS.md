@@ -1,44 +1,40 @@
 # FleetMate Web Admin
 
-One codebase for a Munki and Cimian web admin. It builds three apps: the
-combined FleetMate Web Admin, Munki Web Studio, and Cimian Web Studio. Read
-`docs/architecture.md`, `docs/plan.md`, and `docs/releases.md` before
-implementation, plus `docs/munki/` or `docs/cimian/` for platform work.
-Everything is a proposal until explicitly accepted, except the decisions those
-documents mark as decided.
+The combined web admin for Munki and Cimian. It hosts
+`rodchristiansen/munki-web-studio` and `windowsadmins/cimian-web-studio`, which
+are complete standalone products. Read `docs/architecture.md` and `docs/plan.md`,
+plus each studio's `docs/hosting.md`, before implementation. Everything is a
+proposal until explicitly accepted.
 
-## Where code goes
+## Dependency direction
 
-All code lives here. `rodchristiansen/munki-web-studio` and
-`windowsadmins/cimian-web-studio` are release-only mirrors written by the release
-job. Never open a PR with source against a studio repository.
+FleetMate depends on the two studios' released packages. The studios never
+depend on FleetMate, and must keep working without it.
 
-- Shared behavior (workspace UI, change sets, revisions, jobs, identity, audit,
-  the adapter contract) belongs in the core.
-- Anything that knows about plist, Munki or Cimian keys, a condition syntax, or a
-  platform tool belongs in that platform's adapter or worker.
-- A studio build is a profile that selects one adapter and one theme. Never
-  branch on the studio name in shared code.
+- Munki or Cimian behavior (file formats, fields, conditions, workers, the
+  workspace, editing, review, jobs) belongs in the studio. Never add it here.
+- FleetMate holds only what exists because both studios run together: the
+  shell that mounts both, shared sign-in, the repository switcher, the combined
+  Activity and diagnostics views, combined deployment, and the drift check.
+- If FleetMate needs something a studio does not provide, change the studio's
+  hosting surface there, in both studios, and then consume the new release here.
+- Never patch, vendor, or fork studio code inside this repository.
 
 ## Worktrees and delivery
 
 Create task worktrees inside `./.worktrees/` with the global `git wt` alias,
 starting from `origin/main`. Keep `/.worktrees/` ignored. Use task branches and
 reviewed pull requests. Never add assistant attribution or bracketed tags to
-commit subjects. Track code work in this repository's GitHub issues, linking the
-studio issue it came from.
+commit subjects. Track work in this repository's GitHub issues.
 
 ## Repository integrity
 
 Use synthetic fixtures. Never attach a live Munki or Cimian repository during
-development without explicit authorization. Preserve unknown keys, value types,
-version strings, file formats, relative paths, and meaningful ordering. Do not
-silently convert formats or make Git mandatory. Catalogs are derived outputs.
+development without explicit authorization.
 
 ## Infrastructure
 
 All deployable configuration belongs in versioned IaC and the reviewed deployment
-path, including the GitHub App the release job uses. Planning does not authorize
-cloud provisioning or identity changes. Keep application state, repository
-content, credentials, and package payloads out of this repository. Select a
-license before public distribution.
+path. Planning does not authorize cloud provisioning or identity changes. Keep
+application state, repository content, credentials, and package payloads out of
+this repository. Select a license before public distribution.

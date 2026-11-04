@@ -1,104 +1,59 @@
-# Architecture: one core, two adapters
+# Architecture: hosting two standalone studios
 
-Status: proposal · 2026-10-20
-
-## Why one core
-
-Munki and Cimian model software the same way: pkginfo describes a package,
-manifests assign packages to machines, catalogs are generated from pkginfo, and
-an admin edits, reviews, and publishes. The web layer has no reason to differ.
-What differs is narrow and well bounded:
-
-| Concern         | Munki                                                         | Cimian                                                 |
-| --------------- | ------------------------------------------------------------- | ------------------------------------------------------ |
-| Metadata format | XML or binary plist; YAML in recent versions                  | YAML                                                   |
-| Typed values    | Dates, data, integers, booleans                               | YAML scalars; version strings must stay strings        |
-| Conditions      | `NSPredicate` strings                                         | Cimian expression strings and fact/operator/value maps |
-| Installer types | pkg, dmg, copy_from_dmg, profile                              | msi, exe, msix, nupkg, ps1                             |
-| Tool host       | macOS (`makecatalogs`, installer inspection, icon extraction) | Windows (`makecatalogs`, `cimiimport`, `cimipkg`)      |
-| Typical serving | Web server or object storage                                  | Azure Blob, S3, or web server                          |
-
-Everything else, including the workspace, drafts, conflicts, review, jobs, Git,
-auth, and audit, is shared.
+Status: proposal · 2026-11-04
 
 ## Shape
 
+Munki Web Studio and Cimian Web Studio are each a complete app: UI, API,
+repository adapter, platform worker, sign-in, and deployment. FleetMate is a
+thin host that installs both studios as packages and runs them in one process.
+
 ```mermaid
 flowchart LR
-  Browser[Workspace UI] --> API[Core API]
-  API --> Changes[Change sets and revisions]
-  API --> Jobs[Durable jobs]
-  API --> Auth[Identity and audit]
-  API --> Adapter{Repository adapter}
-  Adapter --> Munki[Munki adapter]
-  Adapter --> Cimian[Cimian adapter]
-  Jobs --> MacWorker[Mac worker]
-  Jobs --> WinWorker[Windows worker]
+  Browser[Browser] --> Shell[FleetMate shell: sign-in, switcher, Activity]
+  Shell --> Munki["/munki: Munki Web Studio package"]
+  Shell --> Cimian["/cimian: Cimian Web Studio package"]
+  Munki --> MacWorker[Mac worker]
+  Cimian --> WinWorker[Windows worker]
 ```
 
-## The adapter contract
+Dependencies point one way: FleetMate to the studios. Each studio defines its
+hosting surface in its own `docs/hosting.md` (identical in both): a manifest, an
+API router, a UI module, an identity hook, settings, job types, and health.
 
-A repository adapter is the only code that reads or writes repository files. It
-provides:
+## What FleetMate owns
 
-- **Layout**: which directories exist and how a relative path maps to an object
-  kind (package, manifest, catalog, icon, payload).
-- **Codec**: parse bytes into a typed document and back, preserving unknown keys,
-  ordering, and formatting. A no-op round trip must return identical bytes.
-- **Schema**: the known fields for each object kind, their types, and which ones
-  the structured editor shows, grouped into editor tabs.
-- **References**: how manifests point at packages and other manifests, so the core
-  can build the dependency graph and flag missing items.
-- **Conditions**: parse condition expressions for display and validation; the
-  core renders them as rules.
-- **Capabilities**: the jobs this platform supports and the worker each one needs.
+| Piece                    | Why it is here, not in a studio                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| Shell and navigation     | Switching between a Mac and a Windows repository only exists when both are present    |
+| Sign-in                  | One OIDC session handed to both studios through their identity hook                   |
+| Roles                    | Maps one user's roles onto each studio's Viewer/Editor/Publisher/Administrator        |
+| Activity and diagnostics | One view over both studios' jobs, workers, and health                                 |
+| Deployment               | One image, one ingress, one app-state store holding both studios' state               |
+| Drift check              | CI that compares the copied workspace code in the two studios and reports differences |
 
-The core owns identity (repository ID plus relative path), revisions derived from
-raw bytes, the write coordinator, and the journal. It passes typed documents
-between the UI and the adapter without interpreting format details.
+Anything else belongs in a studio.
 
-## Workers
+## Versions
 
-One job contract, two worker builds. A Mac worker runs Munki tools; a Windows
-worker runs Cimian tools. Each reports its capabilities and tool versions in a
-handshake. The UI shows a job as unavailable, with the reason, when no worker
-for it is connected.
+FleetMate pins one release of each studio. A studio release that changes the
+hosting contract version lands in FleetMate only after both studios support it.
+FleetMate can ship with an older studio release if the other studio has moved on.
 
-## One repository, three builds
+## Brand
 
-All code lives in this repository: the core, both adapters, and both workers.
-Development, issues for code, and pull requests happen here only. One release
-produces three builds:
+Inside FleetMate, each studio keeps its own name, icon, and accent color within
+its section, so a Munki admin and a Cimian admin both recognize their tool. The
+shell itself uses a neutral FleetMate theme.
 
-| Build | Contents | Published to |
-| --- | --- | --- |
-| FleetMate Web Admin | Core plus both adapters, for admins who run both platforms | This repository's releases |
-| Munki Web Studio | Core plus the Munki adapter, Munki branding, Mac worker | `rodchristiansen/munki-web-studio` |
-| Cimian Web Studio | Core plus the Cimian adapter, Cimian branding, Windows worker | `windowsadmins/cimian-web-studio` |
+## Backend
 
-The studio repositories are release-only mirrors. See [releases](releases.md).
-
-A studio build is a build profile, not a fork: it selects one adapter and one
-brand theme. Anything a studio needs that the other lacks is an adapter feature
-or a theme value, never a code branch on the studio name.
-
-### Dedicated studio builds
-
-Decided 2026-10-20. A studio build is dedicated to its platform. The Munki build
-contains no Cimian adapter, fields, installer types, condition syntax, worker, or
-wording, and the Cimian build none of Munki's. Nothing from the other platform
-appears hidden or disabled; it is left out of the build. The build step drops
-the other adapter, so a stray reference fails the build instead of showing up in
-the UI. Only the combined FleetMate build carries both.
-
-## Stack
-
-React, TypeScript, and Vite for the browser, as already proposed. The backend
-choice now has to suit both codecs: Python handles plist natively and YAML with
-`ruamel.yaml`; .NET could reuse Cimian's models but has weaker plist support;
-TypeScript shares a language with the UI but needs both codecs proven. Decide in
-one spike that round-trips both studios' fixture sets through each candidate.
+Both studios are recommended to use Python (see either studio's
+`docs/backend.md`). Hosting both in one process requires that they share a
+runtime. If they ever diverge, FleetMate would run them as two processes behind
+one proxy instead, which keeps the same user experience at higher operating cost.
 
 ## Open questions
 
-- Do adapters run in the core process, or as separate services the core calls?
+- In-process hosting or two processes behind a proxy from the start?
+- One app-state database with a schema per studio, or one database per studio?

@@ -1,0 +1,49 @@
+[project]
+name = "fleetmate-web-admin"
+version = "0.1.0"
+description = "Munki Web Studio and Cimian Web Studio together, for admins who run both."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.14"
+dependencies = [
+    # The studios are pinned to exact commits until they publish releases.
+    "munki-web-studio @ git+https://github.com/rodchristiansen/munki-web-studio@0edc1a50e7e23dee8b096c465e02ad8008bca85a",
+    "cimian-web-studio @ git+https://github.com/windowsadmins/cimian-web-studio@04aa7a8d3b65cf32fbd6b289a7e739bb38b57f6b",
+    "fastapi>=0.162.0",
+    "typer>=0.27.3",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+fmwsctl = "fleetmate_web_admin.cli:main"
+
+[dependency-groups]
+dev = ["pyright>=1.1.408", "pytest>=9.0.1", "ruff>=0.14.4", "httpx>=0.28.1"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fleetmate_web_admin"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+src = ["src", "tests"]
+extend-exclude = ["spikes"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.pyright]
+include = ["src", "tests"]
+strict = ["src"]
+pythonVersion = "3.14"

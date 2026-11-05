@@ -26,3 +26,26 @@ FleetMate depends on the studios. The studios never depend on FleetMate.
 - [Plan](docs/plan.md)
 - [Codec spike](spikes/codec/results/summary.md), the test behind the backend
   recommendation
+
+## Development
+
+FleetMate is a Python 3.14 package managed with uv. It installs both studios as
+packages, pinned to exact commits in `pyproject.toml` until they publish
+releases. Install everything:
+
+```sh
+uv sync
+```
+
+`fmwsctl` runs either studio's commands under its name, and serves the host:
+
+```sh
+uv run fmwsctl --help
+```
+
+Run the checks CI runs:
+
+```sh
+uv run ruff check && uv run pyright && uv run pytest
+```
+

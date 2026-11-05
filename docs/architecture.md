@@ -28,6 +28,7 @@ API router, a UI module, an identity hook, settings, job types, and health.
 | Shell and navigation     | Switching between a Mac and a Windows repository only exists when both are present    |
 | Sign-in                  | One OIDC session handed to both studios through their identity hook                   |
 | MCP endpoint | One `/mcp` endpoint that mounts both studios' FastMCP servers under `munki_` and `cimian_` tool prefixes, with one sign-in |
+| Command line | `fmwsctl`, which adds both studios' Typer apps as `munki` and `cimian` subcommands, plus combined-deployment commands. The studios' own commands are `mwsctl` and `cwsctl` |
 | Roles                    | Maps one user's roles onto each studio's Viewer/Editor/Publisher/Administrator        |
 | Activity and diagnostics | One view over both studios' jobs, workers, and health                                 |
 | Deployment               | One image, one ingress, one app-state store holding both studios' state               |

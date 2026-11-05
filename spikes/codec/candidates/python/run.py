@@ -12,7 +12,7 @@ import sys
 import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-import codec  # noqa: E402
+import codec
 
 SPIKE = pathlib.Path(__file__).resolve().parents[2]
 FIXTURES = SPIKE / "fixtures"
@@ -33,9 +33,7 @@ BOOL_KEYS = {"unattended_install", "unattended_uninstall", "uninstallable", "opt
 
 
 def changed_lines(a: bytes, b: bytes) -> int:
-    diff = difflib.unified_diff(
-        a.decode().splitlines(), b.decode().splitlines(), lineterm="", n=0
-    )
+    diff = difflib.unified_diff(a.decode().splitlines(), b.decode().splitlines(), lineterm="", n=0)
     return sum(1 for l in diff if l[:1] in "+-" and not l.startswith(("+++", "---")))
 
 
@@ -75,9 +73,7 @@ def check_types(doc, rel, kind, role) -> list[str]:
             bad.append("icon_data not bytes")
     if "handformatted" not in rel:
         x = doc.get("x_unknown_site_key")
-        want = (
-            "keep-me" if rel == "munki/pkginfo.yaml" else {"nested": [1, 2.5, "three"]}
-        )
+        want = "keep-me" if rel == "munki/pkginfo.yaml" else {"nested": [1, 2.5, "three"]}
         if r := codec.strict_equal(want, x):
             bad.append(f"x_unknown_site_key: {r}")
     return bad
@@ -93,9 +89,7 @@ def edit_model(doc, role, new_name):
 def surgical(kind, text, doc, role, new_name) -> str:
     if kind == "yaml":
         if role == "manifest":
-            return codec.yaml_append_scalar(
-                text, doc, "managed_installs", "ExampleExtra"
-            )
+            return codec.yaml_append_scalar(text, doc, "managed_installs", "ExampleExtra")
         return codec.yaml_set_scalar(text, doc, "display_name", new_name)
     if role == "manifest":
         return codec.plist_append_string(text, "managed_installs", "ExampleExtra")
@@ -118,9 +112,7 @@ def run_case(work: pathlib.Path, rel, kind, role, new_name) -> list[dict]:
     out = []
 
     def rec(test, ok, detail, **extra):
-        out.append(
-            {"fixture": rel, "test": test, "pass": ok, "detail": detail, **extra}
-        )
+        out.append({"fixture": rel, "test": test, "pass": ok, "detail": detail, **extra})
 
     src = work / rel
     orig = src.read_bytes()
@@ -137,14 +129,8 @@ def run_case(work: pathlib.Path, rel, kind, role, new_name) -> list[dict]:
     same = rewritten == orig
     if text_kind:
         n = changed_lines(orig, rewritten)
-        n_default = changed_lines(
-            orig, codec.dump(kind, codec.load(kind, orig), tuned=False)
-        )
-        cfg = (
-            "preserve_quotes, indent(2,4,2), width 4096"
-            if kind == "yaml"
-            else "sort_keys=False"
-        )
+        n_default = changed_lines(orig, codec.dump(kind, codec.load(kind, orig), tuned=False))
+        cfg = "preserve_quotes, indent(2,4,2), width 4096" if kind == "yaml" else "sort_keys=False"
         rec(
             2,
             same,
@@ -174,9 +160,7 @@ def run_case(work: pathlib.Path, rel, kind, role, new_name) -> list[dict]:
             changed_lines=n,
         )
     else:
-        nbytes = sum(a != b for a, b in zip(orig, written)) + abs(
-            len(orig) - len(written)
-        )
+        nbytes = sum(a != b for a, b in zip(orig, written)) + abs(len(orig) - len(written))
         rec(
             3,
             sem is None,
@@ -204,9 +188,7 @@ def run_case(work: pathlib.Path, rel, kind, role, new_name) -> list[dict]:
     if text_kind:
         text = orig.decode()
         try:
-            patched = surgical(
-                kind, text, codec.load(kind, orig), role, new_name
-            ).encode()
+            patched = surgical(kind, text, codec.load(kind, orig), role, new_name).encode()
             (work / (rel + ".surgical")).write_bytes(patched)
             n = changed_lines(orig, patched)
             sem = codec.strict_equal(expected, codec.load(kind, patched))
@@ -237,9 +219,7 @@ def run_case(work: pathlib.Path, rel, kind, role, new_name) -> list[dict]:
     r = codec.strict_equal(doc, back)
     naive = ""
     if "installed_size" in doc:
-        plain = json.loads(
-            node_roundtrip(json.dumps({"n": int(doc["installed_size"])}))
-        )["n"]
+        plain = json.loads(node_roundtrip(json.dumps({"n": int(doc["installed_size"])})))["n"]
         naive = f"; untagged control: installed_size comes back {plain}"
     rec(
         6,

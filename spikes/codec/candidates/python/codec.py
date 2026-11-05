@@ -129,7 +129,7 @@ class Node:
     end: int = 0  # offset after the closing ">"
     inner_start: int = 0
     inner_end: int = 0
-    children: list["Node"] = field(default_factory=list)
+    children: list[Node] = field(default_factory=list)
 
 
 def plist_spans(text: str) -> Node:

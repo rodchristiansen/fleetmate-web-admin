@@ -53,9 +53,12 @@ to the next issue, when a slice needs:
 - a live repository or any real organization data.
 
 Label it `blocked` with a comment when it waits on hardware or another slice.
-`needs-hardware` slices run Munki tools on this Mac (`/usr/local/munki` is
-installed) and Cimian tools on a `windows-latest` CI runner or the `win-desktop`
-Claude session.
+Platform testing runs on the maintainer's machines, not cloud runners, to save CI
+minutes. Munki tools run on this Mac (`/usr/local/munki` is installed). Windows
+and Cimian work runs in the `win-desktop` Claude session, reached with
+`SendMessage` (see the `session-messaging` and `win-session` skills): send it the
+branch and the exact commands, and read its results before merging. GitHub
+Actions runs only on `ubuntu-latest`.
 
 If CI fails three times on the same cause, stop the loop and report the cause.
 

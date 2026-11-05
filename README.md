@@ -22,6 +22,7 @@ FleetMate depends on the studios. The studios never depend on FleetMate.
 ## Start here
 
 - [Architecture: hosting two standalone studios](docs/architecture.md)
+- [Build plan and loop protocol](docs/build-plan.md)
 - [Plan](docs/plan.md)
 - [Codec spike](spikes/codec/results/summary.md), the test behind the backend
   recommendation
